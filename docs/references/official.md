@@ -50,3 +50,13 @@ Nguồn nền được đối chiếu ở commit cố định, không dùng `mai
 - [OpenOCD v0.12.0 nrf52.cfg](https://github.com/openocd-org/openocd/blob/v0.12.0/tcl/target/nrf52.cfg): `nrf52_check_ap_lock` và `nrf52_recover` dùng CTRL-AP ERASEALL, tên/help ghi rõ “Mass erase and unlock”. Đây là nguồn implementation tool, không phải xác nhận đã thử trên bo.
 
 Các trang PDF/Product Specification chính thức Nordic trả HTTP 403 trong lần đọc này; chưa kiểm chứng được phần diễn giải datasheet đầy đủ qua endpoint đó. Không có SWD readout, đo điện hoặc runtime flash trong audit. Các điều kiện chưa xác nhận ở trên vẫn là điều kiện cần trước phục hồi độc lập.
+
+## Chế độ kết nối
+
+Đọc trực tiếp ngày 28/10/2026:
+
+- [FAQ — dongle 2,4 GHz](https://zmk.dev/docs/faq): phân biệt giao thức Nordic riêng với dongle BLE.
+- [Dongle BLE](https://zmk.dev/docs/hardware-integration/dongle): central/peripheral và giới hạn sử dụng khi thiếu dongle.
+- [Output selection](https://zmk.dev/docs/keymaps/behaviors/outputs): USB/BLE, toggle và ngắt output.
+
+Kết luận áp dụng cho board ở [các chế độ kết nối](../connection-modes.md).

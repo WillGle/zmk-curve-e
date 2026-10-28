@@ -1,0 +1,15 @@
+{
+  "date": "2026-10-28",
+  "scope": "Static source inspection and semantic probes only; no compile/flash/radio test",
+  "fork_commit": "aba1104a9777d851df1c3ea032468d44c42ed3f0",
+  "source_manifest": "../../hardware/upstream/ph-design-zmk-aba1104-esb/source.json",
+  "verified_files": 18,
+  "checks": {
+    "ble_stop_logs_disable_failure_but_returns_zero": true,
+    "receiver_reschedules_before_authentication": true,
+    "receiver_accepts_partial_reports_with_min": true,
+    "payload_plaintext_default_bytes": 20
+  },
+  "current_firmware_changed": false,
+  "design_status": "awaiting approval"
+}

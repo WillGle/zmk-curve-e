@@ -112,3 +112,21 @@ khảo; không gán linh kiện của chúng sang Curve và không coi chúng l�
 cho thiết kế Curve chưa tìm thấy. Public source không kèm license cũng chưa
 cấp quyền tái phân phối tùy ý. Chưa có căn cứ tuyên bố đã loại bỏ hoàn toàn phụ
 thuộc vendor.
+
+## Nguồn đối chiếu 3 mode
+
+Đọc ngày 28/10/2026, cố định revision để tránh suy ra từ nhánh thay đổi:
+
+- [Manifest vendor](https://github.com/Deemen17/zmk-keyboards-dekb/blob/d65386912abdf0ed52a81ce11fb7794d840c2cdf/config/west.yml).
+- [Cấu hình Curve E](https://github.com/Deemen17/zmk-keyboards-dekb/blob/d65386912abdf0ed52a81ce11fb7794d840c2cdf/boards/shields/curve_e/boards/de_core_nrf52.conf).
+- [Build matrix vendor](https://github.com/Deemen17/zmk-keyboards-dekb/blob/d65386912abdf0ed52a81ce11fb7794d840c2cdf/build.yaml).
+- [Kconfig ESB/2G4 của fork](https://github.com/ph-design/zmk/blob/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/Kconfig).
+- [Đầu ra USB/BLE/2G4 của fork](https://github.com/ph-design/zmk/blob/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/include/zmk/endpoints_types.h).
+- [Driver ESB Kconfig](https://github.com/ph-design/zmk/blob/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/module/drivers/esb/Kconfig).
+
+Shield DENGLE còn có trong snapshot `66f10de4dd1c5728e36670091cb84a9481234cb7`
+đã lưu tại `hardware/upstream/`; xem manifest nguồn hiện có. Có nguồn ESB không
+xác nhận Curve E đã build/chạy ba mode. Xem [kết luận](../connection-modes.md).
+
+Các file fork đã audit được lưu nguyên bản cùng LICENSE và hash từng file tại
+[manifest ESB](../../hardware/upstream/ph-design-zmk-aba1104-esb/source.json).

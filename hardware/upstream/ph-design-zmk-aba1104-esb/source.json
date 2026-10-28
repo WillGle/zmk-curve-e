@@ -1,0 +1,117 @@
+{
+  "repository": "https://github.com/ph-design/zmk",
+  "commit": "aba1104a9777d851df1c3ea032468d44c42ed3f0",
+  "retrieved_date": "2026-10-28",
+  "scope": "Selected unmodified source files for audit only; not a complete buildable checkout",
+  "license": "MIT; original LICENSE retained; per-file notices preserved",
+  "files": [
+    {
+      "path": "LICENSE",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/LICENSE",
+      "bytes": 1116,
+      "sha256": "d6e6bc630dc43dd91276e89efc492db336073e67b4e794168addd270e7d37f53"
+    },
+    {
+      "path": "app/CMakeLists.txt",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/CMakeLists.txt",
+      "bytes": 8943,
+      "sha256": "19aafefd34ce3df9e2c2a5382529d1f6de232be9a5728936be983e95f2847262"
+    },
+    {
+      "path": "app/Kconfig",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/Kconfig",
+      "bytes": 21824,
+      "sha256": "22894c158e5153128a75dde01ba55e6b04ca9ea88c43c4d3a375d65d34de1010"
+    },
+    {
+      "path": "app/src/ble.c",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/src/ble.c",
+      "bytes": 28223,
+      "sha256": "38c7f7f98a22a02b998f43dad28397fb4e83db99076a631dbdd5d10fcf38c94f"
+    },
+    {
+      "path": "app/include/zmk/ble.h",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/include/zmk/ble.h",
+      "bytes": 1574,
+      "sha256": "fa37d86c1bdfd2551ae31d754be91e37405f02ef79c308c675f66656bd88b144"
+    },
+    {
+      "path": "app/src/endpoints.c",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/src/endpoints.c",
+      "bytes": 19328,
+      "sha256": "8de81e1a8f1d1b8f699a89df1731bc632a489ec219454d2645f48ddc559dd15a"
+    },
+    {
+      "path": "app/src/2g4.c",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/src/2g4.c",
+      "bytes": 6458,
+      "sha256": "74163004e0b8ee2282d30220bf2a28cef214a5d8331bda14e6705e4789e1e52d"
+    },
+    {
+      "path": "app/src/2g4_dongle.c",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/src/2g4_dongle.c",
+      "bytes": 7256,
+      "sha256": "ae30ea94905bb456e35d3ff27542bb5e6847f5c0fd4a3044085f07e5796ab961"
+    },
+    {
+      "path": "app/src/2g4_crypto.c",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/src/2g4_crypto.c",
+      "bytes": 13855,
+      "sha256": "755b22efec634e15577b395407fcf3493229255b4eba970cffdf9fe233b18c12"
+    },
+    {
+      "path": "app/include/zmk/2g4.h",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/include/zmk/2g4.h",
+      "bytes": 519,
+      "sha256": "822f0169d6ea510927dcc5c5b93f659a11b25eccdf1c0aa1fd961c26626e38b1"
+    },
+    {
+      "path": "app/include/zmk/2g4_crypto.h",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/include/zmk/2g4_crypto.h",
+      "bytes": 1000,
+      "sha256": "4f6852c9f6ffff623aa3ee96e478aab3973db7c7f3d1eb325ccd6d02ed0b8659"
+    },
+    {
+      "path": "app/include/zmk/2g4_protocol.h",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/include/zmk/2g4_protocol.h",
+      "bytes": 585,
+      "sha256": "994c44d6e10e7e34846b81b6ae0502477bb7658ceb41a6050b09c12961c6b4b4"
+    },
+    {
+      "path": "app/include/zmk/endpoints_types.h",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/include/zmk/endpoints_types.h",
+      "bytes": 958,
+      "sha256": "7691126d697254bc1eb4d899dc251aadd1aa3864fdc091a2611140403e71006a"
+    },
+    {
+      "path": "app/include/dt-bindings/zmk/outputs.h",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/include/dt-bindings/zmk/outputs.h",
+      "bytes": 157,
+      "sha256": "f94ae274322ad2fe1a030fa3d71b0582978a8d1e4d81325644c748b0c9040a96"
+    },
+    {
+      "path": "app/module/drivers/esb/esb.c",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/module/drivers/esb/esb.c",
+      "bytes": 30603,
+      "sha256": "177e028848eb6f1ed1c7677e9bf7f2c1cb977b2f090f2244b837980400aed6a8"
+    },
+    {
+      "path": "app/module/drivers/esb/Kconfig",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/module/drivers/esb/Kconfig",
+      "bytes": 768,
+      "sha256": "284b4bd2fdecffffe743b6a70931dc505ddff7bab48e8c45716a6f4966048dd3"
+    },
+    {
+      "path": "app/module/drivers/esb/CMakeLists.txt",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/module/drivers/esb/CMakeLists.txt",
+      "bytes": 136,
+      "sha256": "dc40ec8044f98ac21470662381e6415cf9642f3c431dc5490da41d54cf69926e"
+    },
+    {
+      "path": "app/module/include/zmk/esb.h",
+      "source_url": "https://raw.githubusercontent.com/ph-design/zmk/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/module/include/zmk/esb.h",
+      "bytes": 1839,
+      "sha256": "e70b90d49b6a7cc44e69f8a611e73bdaabffc2a037a8cc3fbd7b547560e1c5be"
+    }
+  ]
+}

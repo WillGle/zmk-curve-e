@@ -25,3 +25,5 @@ Kiểm tra checksum archive theo manifest bằng `sha256sum <đường-dẫn-arc
 [Khảo sát nguồn vendor](../../docs/references/public-sources.md) và
 [Audit khôi phục](../../docs/recovery.md).
 Không dùng archive nguồn để nạp thiết bị.
+
+- [ESB fork ph-design](ph-design-zmk-aba1104-esb/source.json): 18 file nguyên bản gồm mã nguồn và LICENSE tại commit cố định; chỉ để audit, không phải checkout đủ để build.
