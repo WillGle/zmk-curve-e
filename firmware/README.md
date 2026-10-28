@@ -53,3 +53,8 @@ Dump riêng tư vẫn ở `firmware/recovery-2026-10-28/`, được Git bỏ qua
 Workspace build tại `build/curve-e/` trong repo, được Git bỏ qua và có thể tạo
 lại theo [hướng dẫn build](../guides/build-firmware.md).
 Mã nguồn ở `boards/`, `config/`, `zephyr/`; xem [tài liệu firmware](../docs/firmware.md).
+
+## Thử nghiệm ESB cách ly
+
+[Prototype USB+ESB](experimental/README.md) được build riêng, chưa nạp và chưa
+thử radio. Không thay bản BLE hiện hành; không phải bản ba mode để dùng hằng ngày.

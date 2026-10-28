@@ -1,0 +1,28 @@
+{
+  "created_utc": "2026-10-28T10:28:33.066640+00:00",
+  "role": "receiver",
+  "status": "compile-only; not flashed or radio-tested",
+  "zmk": "4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85",
+  "zephyr": "10ba6d0cb38bc3d258775d27982f707599320085",
+  "image": "zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5",
+  "target": "nrf52840dk/nrf52840/zmk",
+  "private_artifacts": [
+    {
+      "path": "firmware/experimental/private/20261028T102818Z/receiver/zmk.hex",
+      "bytes": 196301,
+      "sha256": "9484333818c584ed241e054c7b63ed69b38e5f064affc804791e7667732adcd9"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T102818Z/receiver/zmk.bin",
+      "bytes": 69740,
+      "sha256": "20ba3c2e41527cb69b8da3a05ce42dd354cfe8a4aa64468420020b00af05aaa6"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T102818Z/receiver/zmk.elf",
+      "bytes": 1553052,
+      "sha256": "242d01c6e5e402043789b3a6e6aa2bd6e48f9897a66c83b2f733a582d4909877"
+    }
+  ],
+  "uf2": null,
+  "baseline_byte_identical": null
+}

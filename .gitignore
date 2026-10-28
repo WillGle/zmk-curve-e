@@ -18,3 +18,6 @@ modules/
 
 # Backups
 backup/
+
+# Experimental pair secrets and firmware containing the local pair key.
+/firmware/experimental/private/

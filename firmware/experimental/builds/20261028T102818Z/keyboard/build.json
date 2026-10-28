@@ -1,0 +1,38 @@
+{
+  "created_utc": "2026-10-28T10:28:49.713624+00:00",
+  "role": "keyboard",
+  "status": "compile-only; not flashed or radio-tested",
+  "zmk": "4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85",
+  "zephyr": "10ba6d0cb38bc3d258775d27982f707599320085",
+  "image": "zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5",
+  "target": "curve_e//zmk",
+  "private_artifacts": [
+    {
+      "path": "firmware/experimental/private/20261028T102818Z/keyboard/zmk.uf2",
+      "bytes": 176128,
+      "sha256": "74cc22fb383f1dc6b60dab1218de27e737797359416512191fefa6d79ae23a66"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T102818Z/keyboard/zmk.hex",
+      "bytes": 247655,
+      "sha256": "e688f95a188533aa175739167a8c070f612614110e9da79c4cf602cc9873b94c"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T102818Z/keyboard/zmk.bin",
+      "bytes": 87996,
+      "sha256": "b22af4804d980707356cfbc84b9365171ac6432cada04999941fb2174e265784"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T102818Z/keyboard/zmk.elf",
+      "bytes": 1864100,
+      "sha256": "6d42e9ba58557a404cbf163a697da83d373956f92ffd14dfd83d34221e579101"
+    }
+  ],
+  "uf2": {
+    "blocks": 344,
+    "start": "0x26000",
+    "end_exclusive": "0x3b800",
+    "app_bounds_pass": true
+  },
+  "baseline_byte_identical": null
+}
