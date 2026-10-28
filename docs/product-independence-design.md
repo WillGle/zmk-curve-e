@@ -1,5 +1,9 @@
 # Curve E Firmware — sản phẩm độc lập
 
+Phạm vi hiện hành chỉ gồm **cáp USB và BLE**. Hướng USB dongle/ESB 2,4 GHz
+đã dừng theo quyết định người dùng; các mục ESB phía dưới chỉ là lịch sử,
+không phải việc cần tiếp tục. Không thay đổi firmware đang cài.
+
 Trạng thái: đã được duyệt; đã triển khai tại local. Người dùng đã chọn sản
 phẩm riêng, ZMK là dependency, yêu cầu dừng kiểm tra repo gốc và báo đã hoàn
 thành thao tác detach repository trên GitHub. Không cần thay remote hoặc kiểm

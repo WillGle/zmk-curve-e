@@ -1,5 +1,9 @@
 # Curve E — firmware hiện hành
 
+Phạm vi hiện hành chỉ gồm **cáp USB và BLE**. Hướng USB dongle/ESB 2,4 GHz
+đã dừng theo quyết định người dùng; các mục ESB phía dưới chỉ là lịch sử,
+không phải việc cần tiếp tục. Không thay đổi firmware đang cài.
+
 [Mục lục tài liệu](README.md) · [Nguồn tham khảo](references/README.md)
 
 ## Phiên bản và cấu trúc

@@ -1,5 +1,9 @@
 # Trạng thái và việc cần làm để cập nhật firmware local
 
+Phạm vi hiện hành chỉ gồm **cáp USB và BLE**. Hướng USB dongle/ESB 2,4 GHz
+đã dừng theo quyết định người dùng; các mục ESB phía dưới chỉ là lịch sử,
+không phải việc cần tiếp tục. Không thay đổi firmware đang cài.
+
 **ESB thử nghiệm được cách ly:** đã build cặp USB+ESB cho Curve E/nRF52840 DK,
 chưa nạp. BLE chính không đổi binary. Không chọn bản thử thay firmware BLE
 đang dùng khi chưa có receiver và kế hoạch kiểm thử; xem [trạng thái ESB](esb-development.md).

@@ -1,5 +1,9 @@
 # Kế hoạch thực hiện sản phẩm độc lập
 
+Phạm vi hiện hành chỉ gồm **cáp USB và BLE**. Hướng USB dongle/ESB 2,4 GHz
+đã dừng theo quyết định người dùng; các mục ESB phía dưới chỉ là lịch sử,
+không phải việc cần tiếp tục. Không thay đổi firmware đang cài.
+
 > Thực hiện trực tiếp, tuần tự bằng `executing-plans`; thiết kế đã được người dùng duyệt.
 
 **Thiết kế:** [Curve E Firmware](product-independence-design.md).

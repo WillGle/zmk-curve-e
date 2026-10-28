@@ -20,9 +20,8 @@ gốc và copyright tại [NOTICE](NOTICE.md); được phát triển và bảo 
 - **Bản chính USB/BLE:** Studio qua USB, layout cong 47 phím, keymap nhiều
   layer và mouse emulation. Đã xác nhận USB/Studio; còn nghiệm thu BLE thực tế,
   nút hybrid và sleep/wake. BLE là wireless mặc định và là yêu cầu ổn định bắt buộc.
-- **ESB 2,4 GHz:** prototype USB+ESB riêng cho Curve E và receiver nRF52840 DK.
-  Đã build/probe phần mềm; chưa nạp/thử radio, chưa tích hợp ba mode vào bản chính.
-  [Nguồn và giới hạn](experimental/esb/README.md).
+- **Phạm vi sản phẩm:** chỉ cáp USB và BLE. Đã dừng hướng USB dongle/ESB
+  2,4 GHz; prototype cũ chỉ giữ làm [tư liệu lịch sử](experimental/esb/README.md).
 - **Phần cứng:** đã có ảnh, GPIO/matrix và thông tin USB/bootloader. Chưa có
   schematic/CAD/BOM đầy đủ để chế tạo. [Trạng thái tự chủ](docs/status.md).
 
@@ -33,7 +32,6 @@ chính, thử nghiệm và bằng chứng lịch sử tại [firmware](firmware/
 
 ```sh
 ./tools/build-firmware.sh       # Bản chính, offline từ cache đã pin
-./tools/build-esb.sh all        # Prototype cách ly; không nạp thiết bị
 ```
 
 Máy mới cần chuẩn bị workspace/image trước theo [hướng dẫn build](guides/build-firmware.md).

@@ -8,11 +8,9 @@ Từ gốc repository:
 
 ```sh
 ./tools/build-firmware.sh
-./tools/build-esb.sh all
 ```
 
-Lệnh đầu build USB/BLE chính. Lệnh thứ hai build prototype USB+ESB cách ly và
-baseline; không ghép ESB vào BLE. Cả hai kiểm 56 dependency sạch/đúng revision,
+Lệnh này build USB/BLE chính và kiểm 56 dependency sạch/đúng revision,
 dùng image digest trong [product.json](../product.json), không tải mạng, flash
 hoặc mở serial. Cần Docker và quyền truy cập Docker.
 
@@ -25,7 +23,7 @@ config, DTS, frozen manifest, source/dependency hashes và log. `build.json` ghi
 kết quả so sánh với baseline tại `product.json`; khác binary không đồng nghĩa
 đã được chấp thuận thay firmware đang dùng. Không ghi đè release tự động.
 
-ESB lưu tại `firmware/experimental/builds/<timestamp>/`; binary có khóa và key
+Hướng ESB đã dừng; artifact lịch sử ESB lưu tại `firmware/experimental/builds/<timestamp>/`; binary có khóa và key
 header ở `firmware/experimental/private/`, bị loại khỏi Git. Xem
 [module ESB](../experimental/esb/README.md). Workspace/cache sinh ra ở
 `build/curve-e/`; artifact đã archive không phụ thuộc việc giữ build output.
