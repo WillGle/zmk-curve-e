@@ -204,7 +204,8 @@ zephyr_udc0: &usbd {
 		};
 		code_partition: partition@26000 {
 			label = "code_partition";
-			reg = <0x00026000 0x000c6000>;
+			/* UF2 USER_FLASH_END is 0xea000; keep reserved DFU data untouched. */
+			reg = <0x00026000 0x000c4000>;
 		};
 
 		/*
