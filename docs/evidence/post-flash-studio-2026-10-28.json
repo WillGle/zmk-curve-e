@@ -1,0 +1,38 @@
+{
+  "checked_at_utc": "2026-10-28T09:18:17.971113+00:00",
+  "method": "USB Studio UART RPC read-only get_device_info/get_lock_state/get_keymap/get_physical_layouts; no settings mutation or input capture",
+  "port": "/dev/ttyACM1",
+  "device_name": "Curve E",
+  "lock_state": 1,
+  "layers": [
+    {
+      "id": 0,
+      "name": "",
+      "bindings": 47
+    },
+    {
+      "id": 1,
+      "name": "",
+      "bindings": 47
+    },
+    {
+      "id": 2,
+      "name": "",
+      "bindings": 47
+    },
+    {
+      "id": 3,
+      "name": "",
+      "bindings": 47
+    }
+  ],
+  "physical_layouts": [
+    {
+      "name": "Logical Matrix (47 keys)",
+      "keys": 47
+    }
+  ],
+  "active_layout_index": 0,
+  "responses": 4,
+  "settings_written": false
+}

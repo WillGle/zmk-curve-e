@@ -1,0 +1,50 @@
+{
+  "checked_at_utc": "2026-10-28T09:11:28.111155+00:00",
+  "volume": "/run/media/will/CURVE-E",
+  "mount_rw": true,
+  "info": "UF2 Bootloader 0.10.0-10-g8023c1e-dirty\nModel: CURVE E\nBoard-ID: dekb-curves-e\nDate: Jul 13 2026\nSoftDevice: S140 6.1.1\n",
+  "backup_directory": "firmware/recovery-2026-10-28/pre-flash-20261028T091125Z",
+  "backup_sha256": "7591f3f7cbaea6604c220be42f3c3b219750adbf6c487793b87c60b5e63ae89b",
+  "backup_matches_original": true,
+  "release": "firmware/releases/2026-10-28-zmk-4dd95d7-flash-bound/zmk.uf2",
+  "release_sha256": "8a188c54e9b7b8ccbb2349fdf21feac3aa2c8fc1c9679d27e6e4f0d4a511a3ed",
+  "blocks": 930,
+  "write_range": [
+    "0x26000",
+    "0x60200"
+  ],
+  "status": "Application flashed; new USB HID/CDC and read-only Studio RPC verified; physical input, BLE and sleep/wake pending",
+  "flash_started_at_utc": "2026-10-28T09:11:50.990130+00:00",
+  "copy_completed": false,
+  "copy_error": "[Errno 5] Input/output error",
+  "bytes_written_to_mount": 476160,
+  "copy_finished_at_utc": "2026-10-28T09:11:59.595677+00:00",
+  "usb_observations": [
+    {
+      "after_copy_seconds": 0,
+      "devices": []
+    },
+    {
+      "after_copy_seconds": 1,
+      "devices": [
+        {
+          "sysfs": "/sys/bus/usb/devices/1-1",
+          "vid_pid": "1d50:615e",
+          "product": "Curve E"
+        }
+      ]
+    }
+  ],
+  "bootloader_volume_visible_after_copy": false,
+  "post_flash_checks": {
+    "usb_evidence": "post-flash-usb-2026-10-28.json",
+    "studio_evidence": "post-flash-studio-2026-10-28.json",
+    "application_usb_verified": true,
+    "studio_rpc_verified": true,
+    "layers": 4,
+    "bindings_per_layer": 47,
+    "physical_layout_keys": 47,
+    "physical_input_ble_sleep_verified": false
+  },
+  "copy_assessment": "All 476160 bytes were written; fsync/close returned EIO during bootloader disconnect. New application USB and four successful Studio RPC responses independently confirm application boot. No automatic retry."
+}

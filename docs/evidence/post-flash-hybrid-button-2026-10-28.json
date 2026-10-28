@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-28T09:26:44.146310+00:00",
+  "method": "45-second read-only evdev observation of exact Curve E keyboard; no grab/injection; only aggregate keycode counts retained",
+  "device": "/dev/input/event17",
+  "press_counts": {},
+  "release_counts": {},
+  "user_requested_action": "Press hybrid button three times only",
+  "interpretation": "No USB evdev key events captured in bounded window; user later confirmed three presses. Exact overlap of presses and capture window not established. No conclusion yet about hybrid wiring, matrix coordinate, output transport or functional failure.",
+  "user_confirmation": "User reports pressing the hybrid button three times"
+}

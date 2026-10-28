@@ -1,0 +1,10 @@
+{
+  "checked_at_utc": "2026-10-28T09:24:54.241974+00:00",
+  "method": "Bounded LE discovery via BlueZ; no pairing, connecting, bond clearing or adapter power change",
+  "adapter_powered": true,
+  "discovery_already_running": false,
+  "matches": [],
+  "scan_exit_code": 0,
+  "conclusion": "No Curve-named advertisement observed during this short scan; this alone does not establish radio failure",
+  "adapter_discovering_after": false
+}

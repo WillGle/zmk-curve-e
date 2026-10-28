@@ -1,0 +1,29 @@
+{
+  "checked_at_utc": "2026-10-28T09:43:58.786667+00:00",
+  "artifact": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat/zmk.uf2",
+  "sha256": "d880cee41ef409b0690c8ac80a736abda7fd4c09b9d0df68684756389ac97e6b",
+  "blocks": 928,
+  "write_range": [
+    "0x26000",
+    "0x60000"
+  ],
+  "family": "0xada52840",
+  "vectors": {
+    "sp": "0x2000e2a0",
+    "reset": "0x2f77d"
+  },
+  "source_snapshot_matches_repo": true,
+  "effective_config_checks_passed": true,
+  "disabled_config_checks": [
+    "CONFIG_ZMK_BLE_EXPERIMENTAL_FEATURES",
+    "CONFIG_ZMK_BLE_EXPERIMENTAL_CONN",
+    "CONFIG_ZMK_BLE_EXPERIMENTAL_SEC",
+    "CONFIG_ZMK_BLE_PASSKEY_ENTRY",
+    "CONFIG_BT_SMP_ALLOW_UNAUTH_OVERWRITE",
+    "CONFIG_BT_CTLR_PHY_2M"
+  ],
+  "secure_connections_bonding_and_settings_enabled": true,
+  "flashed": false,
+  "runtime_verified": false,
+  "installed_release_at_check": "firmware/releases/2026-10-28-zmk-4dd95d7-flash-bound"
+}

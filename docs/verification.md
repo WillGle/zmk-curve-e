@@ -2,6 +2,46 @@
 
 [Tài liệu kỹ thuật](README.md) · [Firmware để tải](../firmware/README.md)
 
+## Bản BLE hiện hành — 28/10/2026
+
+Đã build offline và nạp `2026-10-28-zmk-4dd95d7-ble-compat` sau khi backup mới.
+928 block, range `[0x26000,0x60000)`; effective config xác nhận passkey,
+experimental BLE, unauthenticated bond overwrite và PHY 2M tắt. USB/Studio
+sau nạp trả đúng 4 layer × 47 phím. Chưa thử pairing/gõ BLE hoặc reconnect.
+Xem [BLE hiện hành](bluetooth.md). Các mục sau là lịch sử bản `flash-bound`.
+
+## Sau nạp — 28/10/2026
+
+- Build pristine trong container `--network none` đạt; UF2 SHA-256 trùng bản
+  hiện hành. [Bằng chứng build offline](../firmware/verification/2026-10-28-offline/verification.json).
+- Backup CURRENT/INFO mới khớp backup cũ. Đã ghi đủ 476160 byte ứng dụng;
+  đồng bộ trả EIO khi ổ bootloader biến mất. Không retry: đã xác nhận USB mới
+  `ZMK Project / Curve E`, `1D50:615E`, HID keyboard/mouse và hai cổng CDC.
+- Studio đọc qua `ttyACM1`: tên Curve E, unlocked, 4 layer mỗi layer 47 bindings,
+  layout 47 vị trí. Không sửa/lưu settings. `ttyACM0` là CDC cũ; không bật log
+  firmware nên không dùng thiếu console output để kết luận boot lỗi.
+- Cổng ttyACM thấy ngoài sandbox; user host thiếu nhóm dialout. Đã kiểm tra
+  Studio qua container tạm cấp đúng device/group, không thay quyền host lâu dài.
+- Chưa thử phím/encoder, lưu keymap qua giao diện Studio, BLE hoặc sleep/wake.
+  Chưa kiểm tra rollback/SWD. Không công bố mọi chức năng đã đạt.
+
+Bằng chứng: [phiên nạp](evidence/flash-session-2026-10-28.json),
+[USB](evidence/post-flash-usb-2026-10-28.json),
+[Studio RPC](evidence/post-flash-studio-2026-10-28.json).
+
+## Cấu hình lắp và BLE sau nạp
+
+Người dùng xác nhận không có encoder: footprint hybrid đang lắp nút bấm.
+Không yêu cầu thử xoay encoder; khai báo EC11 trong build vẫn là tùy chọn
+phần mềm. Chưa đổi GPIO hoặc keymap theo một tọa độ hybrid phỏng đoán.
+
+[Quét BLE giới hạn 12 giây](evidence/post-flash-ble-scan-2026-10-28.json)
+không thấy tên Curve; không pair/kết nối/xóa bond hoặc đổi nguồn adapter.
+Đây chưa phải kiểm chứng BLE chức năng và không chứng minh radio lỗi.
+
+Các phần bên dưới giữ kết quả tại mốc build/preflight trước khi nạp, không
+thay thế trạng thái sau nạp ở trên.
+
 ## Kiểm chứng
 
 Build sạch **đạt**, đã tạo `zmk.uf2` (476160 byte), bắt đầu tại `0x26000`.
@@ -36,7 +76,7 @@ Còn cảnh báo **upstream**: KSCAN deprecated, địa chỉ clock/power và AC
 controller trùng trong SoC devicetree, và qualifier `const` trong tap-dance.
 Không sửa mã ZMK/Zephyr dependency hoặc che các cảnh báo này.
 
-**Chưa nạp firmware mới**, chưa kiểm tra Studio, từng phím, encoder, Bluetooth,
+**Tại mốc build trước nạp:** chưa kiểm tra Studio, từng phím, encoder, Bluetooth,
 sleep/wake hoặc mức tiêu thụ trên bo thật. Nhận diện USB trong tài liệu phần
 cứng là bằng chứng của firmware trước nâng cấp, không phải runtime acceptance
 của UF2 này. USB product/VID/PID mới dùng mặc định ZMK (`Curve E`,

@@ -1,0 +1,59 @@
+{
+  "captured_at_utc": "2026-10-28T09:16:32.484881+00:00",
+  "usb": [
+    {
+      "sysfs": "/sys/bus/usb/devices/1-1",
+      "vid_pid": "1d50:615e",
+      "product": "Curve E",
+      "interfaces": [
+        {
+          "name": "1-1:1.0",
+          "class": "02",
+          "driver": "cdc_acm"
+        },
+        {
+          "name": "1-1:1.1",
+          "class": "0a",
+          "driver": "cdc_acm"
+        },
+        {
+          "name": "1-1:1.2",
+          "class": "03",
+          "driver": "usbhid"
+        },
+        {
+          "name": "1-1:1.3",
+          "class": "02",
+          "driver": "cdc_acm"
+        },
+        {
+          "name": "1-1:1.4",
+          "class": "0a",
+          "driver": "cdc_acm"
+        }
+      ]
+    }
+  ],
+  "serial": [
+    {
+      "name": "ttyACM0",
+      "path": "/sys/devices/pci0000:00/0000:00:08.1/0000:65:00.3/usb1/1-1/1-1:1.0",
+      "device_node_visible": true
+    },
+    {
+      "name": "ttyACM1",
+      "path": "/sys/devices/pci0000:00/0000:00:08.1/0000:65:00.3/usb1/1-1/1-1:1.3",
+      "device_node_visible": true
+    }
+  ],
+  "hid": [
+    {
+      "sysfs": "/sys/bus/hid/devices/0003:1D50:615E.000F",
+      "report_descriptor_bytes": 175,
+      "input_names": [
+        "ZMK Project Curve E Mouse",
+        "ZMK Project Curve E Keyboard"
+      ]
+    }
+  ]
+}

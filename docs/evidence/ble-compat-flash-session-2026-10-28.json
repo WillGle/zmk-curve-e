@@ -1,0 +1,36 @@
+{
+  "checked_at_utc": "2026-10-28T09:45:08.910489+00:00",
+  "info": "UF2 Bootloader 0.10.0-10-g8023c1e-dirty\nModel: CURVE E\nBoard-ID: dekb-curves-e\nDate: Jul 13 2026\nSoftDevice: S140 6.1.1\n",
+  "volume": "/run/media/will/CURVE-E",
+  "mount_rw": true,
+  "backup_directory": "firmware/recovery-2026-10-28/pre-ble-compat-20261028T094508Z",
+  "backup_sha256": "6e4dc56ec432e7d46aa6f599d485daabf09e3bb948ede3baef0653c51081677a",
+  "previous_release_app_blocks_readback_match": 930,
+  "previous_release": "firmware/releases/2026-10-28-zmk-4dd95d7-flash-bound/zmk.uf2",
+  "new_release": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat/zmk.uf2",
+  "new_sha256": "d880cee41ef409b0690c8ac80a736abda7fd4c09b9d0df68684756389ac97e6b",
+  "status": "BLE compatibility app flashed; USB and read-only Studio verified; BLE pairing/stability testing pending",
+  "flashed": true,
+  "flash_started_at_utc": "2026-10-28T09:45:32.119558+00:00",
+  "copy_completed": false,
+  "copy_error": "[Errno 5] Input/output error",
+  "bytes_written_to_mount": 475136,
+  "copy_finished_at_utc": "2026-10-28T09:45:40.601746+00:00",
+  "usb_observations": [
+    {
+      "seconds": 0,
+      "devices": []
+    },
+    {
+      "seconds": 1,
+      "devices": [
+        {
+          "vid_pid": "1d50:615e",
+          "product": "Curve E"
+        }
+      ]
+    }
+  ],
+  "post_flash_studio_evidence": "ble-compat-post-flash-studio-2026-10-28.json",
+  "studio_rpc_verified": true
+}

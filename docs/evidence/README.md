@@ -6,6 +6,14 @@ Dữ liệu gốc được giữ nguyên khi gom thư mục. Các kết luận c
 
 | File | Phạm vi |
 | --- | --- |
+| [ble-compat-preflight-2026-10-28.json](ble-compat-preflight-2026-10-28.json) | Bản BLE mới: 928 block, passkey/experimental/2M tắt, SC/bonding/settings còn bật |
+| [ble-compat-flash-session-2026-10-28.json](ble-compat-flash-session-2026-10-28.json) | Backup và readback app cũ khớp 930 block, nạp UF2 BLE mới |
+| [ble-compat-post-flash-studio-2026-10-28.json](ble-compat-post-flash-studio-2026-10-28.json) | Studio sau nạp BLE mới, 4 layer × 47 bindings |
+| [post-flash-hybrid-button-2026-10-28.json](post-flash-hybrid-button-2026-10-28.json) | Lượt đo nút hybrid: chưa thu sự kiện; chưa chốt thời điểm/đầu ra, không kết luận nút lỗi |
+| [post-flash-ble-scan-2026-10-28.json](post-flash-ble-scan-2026-10-28.json) | Scan LE ngắn, chưa thấy tên Curve; không pair, không kết luận radio lỗi |
+| [flash-session-2026-10-28.json](flash-session-2026-10-28.json) | Backup mới, preflight, copy UF2 và xác nhận ứng dụng khởi động lại |
+| [post-flash-usb-2026-10-28.json](post-flash-usb-2026-10-28.json) | Descriptor USB/HID và hai cổng CDC của firmware mới |
+| [post-flash-studio-2026-10-28.json](post-flash-studio-2026-10-28.json) | Bốn RPC Studio chỉ đọc, 4 layer × 47 bindings và layout 47 vị trí |
 | [local-update-audit-2026-10-28.json](local-update-audit-2026-10-28.json) | Audit local mới: USB, checksum, UF2, cache dependency/toolchain và upstream |
 | [bootloader-2026-10-28.json](bootloader-2026-10-28.json) | INFO_UF2, metadata dump, kiểm tra thoát bootloader và nhận định tiếp sau |
 | [installed-firmware-strings-2026-10-28.json](installed-firmware-strings-2026-10-28.json) | Chuỗi phiên bản trong dump cũ; chưa định danh nguồn byte-exact |

@@ -1,0 +1,17 @@
+{
+  "checked_at_utc": "2026-10-28T09:54:19.478764+00:00",
+  "artifact": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/zmk.uf2",
+  "sha256": "2e3901f0fab72e30561233fbdc229dc598c1798997a723ef01de9694e39093ef",
+  "uf2_blocks": 928,
+  "write_range": [
+    "0x26000",
+    "0x60000"
+  ],
+  "geometry_source": "Deemen17/zmk-keyboards-dekb 66f10de4dd1c5728e36670091cb84a9481234cb7 / curve_e.overlay / space_1u",
+  "geometry_keys": 47,
+  "matrix_transform_order_unchanged": true,
+  "keymap_source_unchanged": true,
+  "effective_config_byte_identical_to_ble_compat": true,
+  "generated_dts_outside_layout_byte_identical": true,
+  "flashed": false
+}
