@@ -1,0 +1,33 @@
+{
+  "created_utc": "2026-10-28T10:43:46.652702+00:00",
+  "role": "baseline",
+  "status": "compile-only; not flashed or radio-tested",
+  "zmk": "4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85",
+  "zephyr": "10ba6d0cb38bc3d258775d27982f707599320085",
+  "image": "zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5",
+  "target": "curve_e//zmk",
+  "private_artifacts": [
+    {
+      "path": "firmware/experimental/private/20261028T104307Z/baseline/zmk.uf2",
+      "bytes": 475136,
+      "sha256": "2e3901f0fab72e30561233fbdc229dc598c1798997a723ef01de9694e39093ef"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T104307Z/baseline/zmk.hex",
+      "bytes": 668000,
+      "sha256": "30ca57e4333003c8e89093ce663b700e6fcd9e803513212e971925089868f55e"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T104307Z/baseline/zmk.bin",
+      "bytes": 237416,
+      "sha256": "2a17e04ec92ec0b3142c1068be423cd7580e539857c76490674aa9444dce865f"
+    },
+    {
+      "path": "firmware/experimental/private/20261028T104307Z/baseline/zmk.elf",
+      "bytes": 4536064,
+      "sha256": "63b595919d98d72af7fe2c4be49e183197b4ff20f6c9cda75833df1539e019d8"
+    }
+  ],
+  "uf2": null,
+  "baseline_byte_identical": true
+}

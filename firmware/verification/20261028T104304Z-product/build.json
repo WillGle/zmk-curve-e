@@ -1,0 +1,12 @@
+{
+  "created_utc": "2026-10-28T10:43:21.795323+00:00",
+  "product": "Curve E Firmware",
+  "target": "curve_e//zmk",
+  "zmk": "4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85",
+  "zephyr": "10ba6d0cb38bc3d258775d27982f707599320085",
+  "image": "zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5",
+  "status": "offline rebuild; not flashed or promoted",
+  "baseline": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved",
+  "baseline_byte_identical": true,
+  "uf2_sha256": "2e3901f0fab72e30561233fbdc229dc598c1798997a723ef01de9694e39093ef"
+}

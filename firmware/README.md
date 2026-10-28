@@ -58,3 +58,6 @@ Mã nguồn ở `boards/`, `config/`, `zephyr/`; xem [tài liệu firmware](../d
 
 [Prototype USB+ESB](experimental/README.md) được build riêng, chưa nạp và chưa
 thử radio. Không thay bản BLE hiện hành; không phải bản ba mode để dùng hằng ngày.
+
+Build kiểm chứng cấu trúc sản phẩm: [20261028T104304Z-product](verification/20261028T104304Z-product/build.json),
+UF2 byte-identical bản hiện hành; không phải một lần nạp hoặc phát hành mới.

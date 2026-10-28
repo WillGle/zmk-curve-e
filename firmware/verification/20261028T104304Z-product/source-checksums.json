@@ -1,0 +1,21 @@
+{
+  "boards/curve_e/Kconfig": "647ad8885faa78ceb5937551e54590b2688c32cbe0245d6f5f5dc481cef35587",
+  "boards/curve_e/Kconfig.curve_e": "1525ef2e7fdbbaa9201beb1f1ac5f5d71e837135d986738e4677a14222197489",
+  "boards/curve_e/Kconfig.defconfig": "d3e4d41ee9245950250076dee7a0e655fe947c7d1a30162c059cfd7ecee2b766",
+  "boards/curve_e/board.cmake": "4facfe4c4d49133d875033b047f01283b37ec57f58167e351e94dd5806ff5632",
+  "boards/curve_e/board.yml": "ae4f3240de5f377b75c3195e80fe0fda081ae7715014e6a02cf4f304b5f43a69",
+  "boards/curve_e/curve_e.keymap": "a13d8c7a68ce210423fe67b70b158bd5ea8c9be63d21d23918ceb2e425f3a271",
+  "boards/curve_e/curve_e.yaml": "33e7d152f0c88098ff3e5236784a3ce9ea13c40a0d05e58d8f7e258d1be69549",
+  "boards/curve_e/curve_e.zmk.yml": "cdb19c60d5028ce7ab10bf157577b2d3b3a8918fdf9da2f771b0e72c18e71356",
+  "boards/curve_e/curve_e_nrf52840_zmk.dts": "3642ec7a4b64a3c59b47919dd46379c91f5a5fd5ffac3648aeeb6e4514be238b",
+  "boards/curve_e/curve_e_nrf52840_zmk_defconfig": "d951f05a46e8735d538f36655a860899e34a8f4df0aa7589ab584a9107d0d4f9",
+  "config/curve_e.conf": "ef3a90ccb6a2f4035b6a18c8b763203689895fd24b188353e6bb79bed9edd72f",
+  "config/west.yml": "52f07739d0adea79fed6c99663496a36cef7c334ee852cbe6cd9ac18adeec083",
+  "product.json": "88ada251cdde5384bcf793795e4234b47f07fc1ec0350f786fb109f7227e8abb",
+  "tools/archive-firmware.py": "bce16f9afd0eec841d12185efd95af5a8b0cb8db97412fae3408f0f4372e38ae",
+  "tools/build-esb.sh": "87591bdf6e53153fed79b184795dcdd43906d4df192c13fa7c9825788678f6fa",
+  "tools/build-firmware.sh": "9bcc02408abccf742ddde446425f8f1f5ccc0f8bb5e9e10ac68e41de2b838bca",
+  "tools/product.py": "c6cdf93b08036e3b2e5f54d9ed8d103a165c3edf286e59cf0a215d882e499fda",
+  "tools/verify-dependencies.py": "eddb8ede745c2f69a46543cc180fedacaa5006c5ca339f3e0c4c3ddf5865f8c1",
+  "zephyr/module.yml": "f2d3357e910f26c1d2f54e063c9b769d37287205e33b75c0da1ec5685d9bacf1"
+}
