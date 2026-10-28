@@ -3,6 +3,12 @@
 Các mục ghi thay đổi của dự án độc lập; không thay lịch sử commit hoặc manifest
 archive. Chưa đặt nhãn stable/1.0 khi kiểm thử phần cứng còn thiếu.
 
+## Quyết định phạm vi — 28/10/2026
+
+- Dừng phát triển receiver USB dongle và ESB 2,4 GHz; giữ source/artifact cũ
+  làm tư liệu tham chiếu. Chỉ phát triển cáp USB và BLE, BLE là wireless mặc định.
+- Chỉ cập nhật tài liệu/danh mục sản phẩm; không nạp hoặc đổi firmware.
+
 ## Chưa phát hành — sản phẩm độc lập, 28/10/2026
 
 - Định vị Curve E Firmware thành sản phẩm riêng, ZMK là dependency khóa revision.

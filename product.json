@@ -15,14 +15,18 @@
   "firmware": {
     "current": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved",
     "wireless_default": "BLE",
-    "runtime_status": "USB/Studio verified; BLE stability and sleep/wake acceptance pending"
+    "runtime_status": "USB/Studio verified; BLE stability and sleep/wake acceptance pending",
+    "supported_transports": [
+      "USB cable",
+      "Bluetooth LE"
+    ]
   },
   "experimental": {
     "esb": {
       "module": "experimental/esb",
       "receiver_board": "nrf52840dk/nrf52840/zmk",
       "receiver_shield": "curve_esb_receiver",
-      "status": "isolated USB+ESB prototype; no radio acceptance"
+      "status": "discontinued by user decision; historical reference only; do not develop or build"
     }
   }
 }

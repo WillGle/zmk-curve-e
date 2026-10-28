@@ -10,8 +10,8 @@ thái local của người khác và không đổi GPIO/partition/identity nếu
 - `config/west.yml`: manifest đã resolve, mọi project khóa full commit SHA;
   không có dependency nhánh trôi hay nested import.
 - `product.json`: image digest, target, đường dẫn bản chính và prototype.
-- `experimental/esb/`: thử nghiệm riêng; không bật ESB hoặc sửa lifecycle BLE
-  của bản chính. BLE là wireless mặc định, phải nghiệm thu ổn định trước phát hành.
+- `experimental/esb/`: hướng đã dừng, chỉ giữ để tham chiếu; không tiếp tục
+  phát triển, build hay nạp ESB. BLE là wireless mặc định, phải nghiệm thu ổn định trước phát hành.
 - `archive/upstream/`: snapshot tra cứu và license gốc, không sửa tại chỗ.
 
 Không thêm nguyên source ZMK vào repository này. Khi nâng dependency, cập nhật
@@ -20,8 +20,8 @@ manifest khóa, metadata nếu cần và tài liệu liên quan cùng nhau; khô
 
 ## Build và kiểm chứng
 
-Từ gốc repo, chạy `./tools/build-firmware.sh`; ESB dùng lệnh riêng
-`./tools/build-esb.sh all`. Cần cache/image theo [hướng dẫn build](guides/build-firmware.md).
+Từ gốc repo, chạy `./tools/build-firmware.sh`. Công cụ ESB cũ chỉ là tư liệu
+lịch sử, không thuộc quy trình phát triển hiện hành. Cần cache/image theo [hướng dẫn build](guides/build-firmware.md).
 Lệnh mặc định offline, kiểm cache sạch/đúng revision, không tự `west update`,
 reset, flash, pair hoặc mở serial. `archive/legacy-tools/` không thuộc quy trình này.
 
