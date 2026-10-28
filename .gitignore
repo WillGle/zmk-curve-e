@@ -13,5 +13,8 @@ modules/
 !/firmware/**/*.uf2
 !/firmware/**/*.log
 
+# Raw device dumps are local recovery evidence, not release artifacts.
+/firmware/recovery-*/
+
 # Backups
 backup/

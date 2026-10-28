@@ -168,14 +168,37 @@ chứng cùng đoạn này; hash nguồn cho phép phát hiện bằng chứng b
   địa chỉ và kích thước căn chỉnh, các khoảng ghi không chồng nhau.
 - Khoảng ghi là `[0x26000, 0x60200)`, nằm trong code partition của repo;
   không có block ghi SoftDevice, storage, bootloader hoặc UICR theo sơ đồ này.
-- USB đang nhận `CURVE E BLE`, VID:PID `DE17:40E1`; chưa thấy ổ bootloader
-  hoặc `INFO_UF2.TXT` trong các vị trí mount thông thường. Chưa reset hoặc nạp.
+- Trước thao tác RESET vật lý, USB nhận `CURVE E BLE`, VID:PID `DE17:40E1`;
+  thời điểm đó chưa thấy ổ bootloader. Chưa nạp firmware mới.
 
 Các kiểm tra này chưa xác minh partition/bootloader thực trên thiết bị và
 không thay thế thử GPIO, BLE, encoder hay sleep/wake trên bo thật. Bước tiếp
-theo là vào bootloader, đọc `INFO_UF2.TXT` và kiểm tra có thể thoát về firmware
-cũ trước khi ghi file. Nên có UF2 cũ đã chạy tốt làm bản quay lui; phiên này
-chưa sao lưu firmware đang nằm trong flash của bàn phím.
+theo là đối chiếu bootloader và kiểm tra có thể thoát về firmware cũ trước khi
+ghi file.
+
+Sau thao tác nút vật lý của người dùng, đã nhận ổ `CURVE-E` tại
+`/run/media/will/CURVE-E`, mount **read-only**. `INFO_UF2.TXT` cho biết:
+
+- Bootloader: `0.10.0-10-g8023c1e-dirty`.
+- Model: `CURVE E`; Board-ID: `dekb-curves-e`.
+- Build date bootloader: `Jul 13 2026`; SoftDevice: `S140 6.1.1`.
+
+**Chặn nạp bản UF2 hiện tại:** `CURRENT.UF2` do bootloader xuất ra có family
+`0xDE1740E1`, khác `0xADA52840` của bản build. Dump không đủ để chứng minh
+bootloader chỉ chấp nhận family nào, nhưng đây là khác biệt chưa giải quyết;
+không tự thử nạp để kiểm chứng. Cần đối chiếu mã/cấu hình bootloader và tạo
+artifact tương thích, không thay bootloader để né kiểm tra.
+
+Đã đọc và sao lưu `CURRENT.UF2` (1908736 byte, 3728 block, khoảng địa chỉ
+`[0x1000, 0xEA000)`) cùng `INFO_UF2.TXT` và checksum vào
+`firmware/recovery-2026-10-28/`, được Git bỏ qua riêng. Đây là dump do thiết
+bị xuất, có cả vùng ngoài app; chưa xác nhận có thể dùng trực tiếp làm UF2
+quay lui. Chưa có thao tác ghi flash hoặc remount read-write.
+
+Sau khi người dùng rút/cắm lại USB, đã quan sát thiết bị ngắt rồi nhận lại
+`CURVE E BLE`, VID:PID `DE17:40E1`; ổ bootloader biến mất. Đường thoát về
+ứng dụng cũ đã kiểm tra ở mức enumeration, chưa xác nhận gõ phím.
+Bằng chứng: [bootloader scan](hardware/evidence/bootloader-2026-10-28.json).
 
 ## Tài liệu chính thức đã đối chiếu
 

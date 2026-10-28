@@ -1,0 +1,26 @@
+{
+  "captured_at_utc": "2026-10-28T08:16:50.375548+00:00",
+  "method": "Read-only bootloader volume after user physical reset; no flashing",
+  "mount": "/run/media/will/CURVE-E",
+  "mount_mode": "read-only",
+  "info_uf2": "UF2 Bootloader 0.10.0-10-g8023c1e-dirty\nModel: CURVE E\nBoard-ID: dekb-curves-e\nDate: Jul 13 2026\nSoftDevice: S140 6.1.1\n",
+  "current_uf2_bytes": 1908736,
+  "current_uf2_sha256": "7591f3f7cbaea6604c220be42f3c3b219750adbf6c487793b87c60b5e63ae89b",
+  "current_uf2_family": "0xde1740e1",
+  "current_uf2_blocks": 3728,
+  "current_address_range": [
+    "0x1000",
+    "0xea000"
+  ],
+  "new_firmware_family": "0xada52840",
+  "status": "Do not flash current build: family mismatch unresolved; application USB re-enumeration after unplug/replug verified",
+  "local_dump_directory": "firmware/recovery-2026-10-28",
+  "exit_check": {
+    "checked_at_utc": "2026-10-28T08:17:49.014810+00:00",
+    "user_action": "USB unplug and replug",
+    "product": "CURVE E BLE",
+    "vid_pid": "de17:40e1",
+    "bootloader_volume_visible": false,
+    "typing_verified": false
+  }
+}
