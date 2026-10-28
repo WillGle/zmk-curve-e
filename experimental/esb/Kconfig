@@ -1,0 +1,41 @@
+menuconfig CURVE_ESB
+    bool "Experimental Curve E ESB transport"
+    depends on SOC_NRF52840 && !ZMK_BLE
+    select ZMK_ESB
+    select MBEDTLS
+    select MBEDTLS_CIPHER_AES_ENABLED
+    select MBEDTLS_CIPHER_CCM_ENABLED
+    select MBEDTLS_SHA256
+    select MBEDTLS_MD
+    select ENTROPY_GENERATOR
+    select CSPRNG_ENABLED
+
+if CURVE_ESB
+config CURVE_ESB_RECEIVER
+    bool "USB receiver role"
+    depends on ZMK_USB && !ZMK_BLE
+
+config ZMK_ESB
+    bool
+    select NRFX_PPI
+    select DYNAMIC_INTERRUPTS
+
+config ZMK_ESB_MAX_PAYLOAD_LENGTH
+    int
+    default 32
+config ZMK_ESB_TX_FIFO_SIZE
+    int
+    default 8
+config ZMK_ESB_RX_FIFO_SIZE
+    int
+    default 8
+config ZMK_ESB_PIPE_COUNT
+    int
+    default 8
+config ZMK_ESB_DEFAULT_RF_CHANNEL
+    int
+    default 76
+config ZMK_ESB_LOG_LEVEL
+    int
+    default 2
+endif

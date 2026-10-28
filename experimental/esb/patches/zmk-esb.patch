@@ -1,0 +1,186 @@
+--- a/app/include/zmk/endpoints_types.h
++++ b/app/include/zmk/endpoints_types.h
+@@ -14,6 +14,9 @@
+     ZMK_TRANSPORT_NONE = 0,
+     ZMK_TRANSPORT_USB = 1,
+     ZMK_TRANSPORT_BLE = 2,
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    ZMK_TRANSPORT_ESB = 3,
++#endif
+ };
+ 
+ /**
+--- a/app/include/zmk/endpoints.h
++++ b/app/include/zmk/endpoints.h
+@@ -35,8 +35,14 @@
+  * Note that this value may change between firmware versions, so it should not
+  * be used in any persistent storage.
+  */
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++#define ZMK_ENDPOINT_ESB_COUNT 1
++#else
++#define ZMK_ENDPOINT_ESB_COUNT 0
++#endif
++
+ #define ZMK_ENDPOINT_COUNT                                                                         \
+-    (ZMK_ENDPOINT_NONE_COUNT + ZMK_ENDPOINT_USB_COUNT + ZMK_ENDPOINT_BLE_COUNT)
++    (ZMK_ENDPOINT_NONE_COUNT + ZMK_ENDPOINT_USB_COUNT + ZMK_ENDPOINT_BLE_COUNT + ZMK_ENDPOINT_ESB_COUNT)
+ 
+ bool zmk_endpoint_instance_eq(struct zmk_endpoint_instance a, struct zmk_endpoint_instance b);
+ 
+--- a/app/include/dt-bindings/zmk/outputs.h
++++ b/app/include/dt-bindings/zmk/outputs.h
+@@ -7,4 +7,6 @@
+ #define OUT_TOG 0
+ #define OUT_USB 1
+ #define OUT_BLE 2
+-#define OUT_NONE 3
+\ No newline at end of file
++#define OUT_NONE 3
++/* Local experimental transport; upstream values remain unchanged. */
++#define OUT_ESB 4
+--- a/app/src/endpoints.c
++++ b/app/src/endpoints.c
+@@ -5,6 +5,10 @@
+  */
+ 
+ #include <zephyr/init.h>
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++#include <curve_esb/transport.h>
++#include <curve_esb/protocol.h>
++#endif
+ #include <zephyr/settings/settings.h>
+ 
+ #include <stdio.h>
+@@ -26,7 +30,11 @@
+ LOG_MODULE_DECLARE(zmk, CONFIG_ZMK_LOG_LEVEL);
+ 
+ // Name of the subtree for endpoint-related settings
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++#define SETTING_SUBTREE "curve_esb_endpoints"
++#else
+ #define SETTING_SUBTREE "endpoints"
++#endif
+ 
+ // Key of the setting to store the preferred_transport value.
+ #define SETTING_PREFERRED_TRANSPORT_KEY "preferred2"
+@@ -78,6 +86,9 @@
+     switch (a.transport) {
+     case ZMK_TRANSPORT_NONE:
+     case ZMK_TRANSPORT_USB:
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    case ZMK_TRANSPORT_ESB:
++#endif
+         return true;
+ 
+     case ZMK_TRANSPORT_BLE:
+@@ -93,6 +104,10 @@
+     case ZMK_TRANSPORT_NONE:
+         return snprintf(str, len, "None");
+ 
++    #if IS_ENABLED(CONFIG_CURVE_ESB)
++    case ZMK_TRANSPORT_ESB:
++        return snprintf(str, len, "ESB");
++#endif
+     case ZMK_TRANSPORT_USB:
+         return snprintf(str, len, "USB");
+ 
+@@ -113,6 +128,10 @@
+     case ZMK_TRANSPORT_NONE:
+         return INSTANCE_INDEX_OFFSET_NONE;
+ 
++    #if IS_ENABLED(CONFIG_CURVE_ESB)
++    case ZMK_TRANSPORT_ESB:
++        return INSTANCE_INDEX_OFFSET_BLE + ZMK_ENDPOINT_BLE_COUNT;
++#endif
+     case ZMK_TRANSPORT_USB:
+         return INSTANCE_INDEX_OFFSET_USB;
+ 
+@@ -144,7 +163,11 @@
+ 
+ int zmk_endpoint_toggle_preferred_transport(void) {
+     enum zmk_transport new_transport =
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++        (preferred_transport == ZMK_TRANSPORT_USB) ? ZMK_TRANSPORT_ESB : ZMK_TRANSPORT_USB;
++#else
+         (preferred_transport == ZMK_TRANSPORT_USB) ? ZMK_TRANSPORT_BLE : ZMK_TRANSPORT_USB;
++#endif
+     return zmk_endpoint_set_preferred_transport(new_transport);
+ }
+ 
+@@ -175,6 +198,10 @@
+ 
+ static int send_keyboard_report(void) {
+     switch (current_instance.transport) {
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    case ZMK_TRANSPORT_ESB:
++        return curve_esb_send(CE_KEYBOARD);
++#endif
+     case ZMK_TRANSPORT_NONE:
+         return 0;
+ 
+@@ -212,6 +239,10 @@
+ 
+ static int send_consumer_report(void) {
+     switch (current_instance.transport) {
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    case ZMK_TRANSPORT_ESB:
++        return curve_esb_send(CE_CONSUMER);
++#endif
+     case ZMK_TRANSPORT_NONE:
+         return 0;
+ 
+@@ -264,6 +295,10 @@
+ #if IS_ENABLED(CONFIG_ZMK_POINTING)
+ int zmk_endpoint_send_mouse_report() {
+     switch (current_instance.transport) {
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    case ZMK_TRANSPORT_ESB:
++        return curve_esb_send(CE_MOUSE);
++#endif
+     case ZMK_TRANSPORT_NONE:
+         return 0;
+ 
+@@ -423,6 +458,11 @@
+ 
+ static enum zmk_transport get_selected_transport(void) {
+     switch (preferred_transport) {
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    case ZMK_TRANSPORT_ESB:
++        if (curve_esb_ready()) { return ZMK_TRANSPORT_ESB; }
++        return is_usb_ready() ? ZMK_TRANSPORT_USB : ZMK_TRANSPORT_NONE;
++#endif
+     case ZMK_TRANSPORT_NONE:
+         LOG_DBG("No endpoint transport selected");
+         return ZMK_TRANSPORT_NONE;
+@@ -510,3 +550,7 @@
+ #endif
+ 
+ SYS_INIT(zmk_endpoints_init, APPLICATION, CONFIG_APPLICATION_INIT_PRIORITY);
++
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++void curve_esb_endpoint_refresh(void) { update_current_endpoint(); }
++#endif
+--- a/app/src/behaviors/behavior_outputs.c
++++ b/app/src/behaviors/behavior_outputs.c
+@@ -23,6 +23,9 @@
+ #if IS_ENABLED(CONFIG_ZMK_BEHAVIOR_METADATA)
+ 
+ static const struct behavior_parameter_value_metadata std_values[] = {
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    {.value = OUT_ESB, .display_name = "ESB Experimental", .type = BEHAVIOR_PARAMETER_VALUE_TYPE_VALUE},
++#endif
+     {
+         .value = OUT_TOG,
+         .display_name = "Toggle Outputs",
+@@ -66,6 +69,10 @@
+     switch (binding->param1) {
+     case OUT_TOG:
+         return zmk_endpoint_toggle_preferred_transport();
++#if IS_ENABLED(CONFIG_CURVE_ESB)
++    case OUT_ESB:
++        return zmk_endpoint_set_preferred_transport(ZMK_TRANSPORT_ESB);
++#endif
+     case OUT_USB:
+         return zmk_endpoint_set_preferred_transport(ZMK_TRANSPORT_USB);
+     case OUT_BLE:

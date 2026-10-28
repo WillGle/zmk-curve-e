@@ -1,0 +1,6 @@
+name: curve-esb
+build:
+  cmake: .
+  kconfig: Kconfig
+  settings:
+    board_root: .
