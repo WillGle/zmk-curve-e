@@ -6,6 +6,9 @@ Dữ liệu gốc được giữ nguyên khi gom thư mục. Các kết luận c
 
 | File | Phạm vi |
 | --- | --- |
+| [curved-layout-preflight-2026-10-28.json](curved-layout-preflight-2026-10-28.json) | Chỉ thay hình học 47 phím, config/keymap/transform giữ nguyên |
+| [curved-layout-flash-session-2026-10-28.json](curved-layout-flash-session-2026-10-28.json) | Backup và readback 928 block BLE cũ khớp, nạp layout mới |
+| [curved-layout-post-flash-studio-2026-10-28.json](curved-layout-post-flash-studio-2026-10-28.json) | 47 bộ tọa độ Studio khớp source, cổng mới ttyACM2 |
 | [ble-compat-preflight-2026-10-28.json](ble-compat-preflight-2026-10-28.json) | Bản BLE mới: 928 block, passkey/experimental/2M tắt, SC/bonding/settings còn bật |
 | [ble-compat-flash-session-2026-10-28.json](ble-compat-flash-session-2026-10-28.json) | Backup và readback app cũ khớp 930 block, nạp UF2 BLE mới |
 | [ble-compat-post-flash-studio-2026-10-28.json](ble-compat-post-flash-studio-2026-10-28.json) | Studio sau nạp BLE mới, 4 layer × 47 bindings |

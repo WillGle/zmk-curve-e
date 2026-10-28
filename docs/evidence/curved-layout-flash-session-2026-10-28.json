@@ -9,12 +9,16 @@
   "previous_app_blocks_readback_match": 928,
   "release": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/zmk.uf2",
   "sha256": "2e3901f0fab72e30561233fbdc229dc598c1798997a723ef01de9694e39093ef",
-  "status": "Curved-layout application USB returned; Studio geometry pending",
+  "status": "Curved layout flashed; Studio read-only RPC returned exact 47-key geometry and 4 layers",
   "flashed": true,
   "flash_started_at_utc": "2026-10-28T09:55:26.813233+00:00",
   "copy_completed": false,
   "copy_error": "[Errno 5] Input/output error",
   "bytes_written": 475136,
   "copy_finished_at_utc": "2026-10-28T09:55:31.883842+00:00",
-  "application_usb_returned": true
+  "application_usb_returned": true,
+  "studio_geometry_evidence": "curved-layout-post-flash-studio-2026-10-28.json",
+  "studio_geometry_matches_source": true,
+  "studio_port": "/dev/ttyACM2",
+  "settings_written_by_verification": false
 }

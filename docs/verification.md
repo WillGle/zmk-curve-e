@@ -2,7 +2,20 @@
 
 [Tài liệu kỹ thuật](README.md) · [Firmware để tải](../firmware/README.md)
 
-## Bản BLE hiện hành — 28/10/2026
+## Layout Studio hiện hành — 28/10/2026
+
+Đã nạp `2026-10-28-zmk-4dd95d7-ble-compat-curved`.
+[Preflight](evidence/curved-layout-preflight-2026-10-28.json) xác nhận config
+byte-identical bản BLE trước, generated DTS ngoài khối layout không đổi,
+transform/keymap giữ nguyên. Hình học 47 phím lấy từ source vendor MIT đã lưu.
+
+[Phiên nạp](evidence/curved-layout-flash-session-2026-10-28.json) có backup mới,
+readback toàn bộ 928 block bản BLE trước khớp archive. Sau nạp Studio trả layout
+`Curve E (47 keys, curved)`; [47 bộ tọa độ đọc lại](evidence/curved-layout-post-flash-studio-2026-10-28.json)
+khớp chính xác source (width/height/x/y/rotation/origin), 4 layer × 47 bindings.
+Cổng Studio lần này `ttyACM2`; không ghi settings trong kiểm chứng.
+
+## Bản BLE trước thay layout — 28/10/2026
 
 Đã build offline và nạp `2026-10-28-zmk-4dd95d7-ble-compat` sau khi backup mới.
 928 block, range `[0x26000,0x60000)`; effective config xác nhận passkey,
