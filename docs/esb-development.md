@@ -20,7 +20,7 @@ binary với DENGLE hay phụ thuộc vendor cung cấp thêm tài liệu.
 
 ## Audit nguồn gốc — finding làm căn cứ port
 
-Các vị trí bên dưới tương đối với [snapshot nguồn nguyên bản](../hardware/upstream/ph-design-zmk-aba1104-esb/source.json).
+Các vị trí bên dưới tương đối với [snapshot nguồn nguyên bản](../archive/upstream/ph-design-zmk-aba1104-esb/source.json).
 Đây là kết quả đọc mã; chưa phải lỗi được tái hiện bằng radio thật. Không sửa
 trực tiếp snapshot để giữ bằng chứng gốc.
 

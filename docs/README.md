@@ -24,3 +24,6 @@ Khi cập nhật, ghi kết luận theo đúng chủ đề; nguồn dẫn ngoài
 `references/`. Giữ nguyên bằng chứng và manifest lịch sử. Bản build mới lưu
 riêng dưới `firmware/releases/`, đồng thời cập nhật danh mục bản hiện hành và
 kết quả kiểm chứng. Hướng dẫn thao tác được duy trì tại `guides/`.
+
+Định vị và cấu trúc sản phẩm: [thiết kế đã triển khai](product-independence-design.md),
+[kế hoạch/kết quả](product-independence-plan.md). Nguồn cũ ở [archive](../archive/README.md).

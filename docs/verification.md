@@ -149,3 +149,10 @@ Sau khi người dùng rút/cắm lại USB, đã quan sát thiết bị ngắt 
 `CURVE E BLE`, VID:PID `DE17:40E1`; ổ bootloader biến mất. Đường thoát về
 ứng dụng cũ đã kiểm tra ở mức enumeration, chưa xác nhận gõ phím.
 Bằng chứng: [bootloader scan](evidence/bootloader-2026-10-28.json).
+
+## Tái cấu trúc sản phẩm độc lập
+
+[Bằng chứng](evidence/product-independence-2026-10-28.json): manifest khóa 56
+dependency; build chính byte-identical với release đang dùng; receiver/keyboard
+ESB build lại đạt. Source cũ chuyển archive giữ nguyên byte. Không flash hoặc
+thử radio/BLE trong đợt này. Workflow đã pin, chưa chạy GitHub Actions.

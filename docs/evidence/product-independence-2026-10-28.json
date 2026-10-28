@@ -1,0 +1,16 @@
+{
+  "date": "2026-10-28",
+  "product": "Curve E Firmware",
+  "status": "local restructure complete; no hardware access or flash",
+  "main_build": "../../firmware/verification/20261028T104304Z-product/build.json",
+  "experimental_builds": "../../firmware/experimental/builds/20261028T104307Z",
+  "baseline_byte_identical": true,
+  "dependency_count": 56,
+  "manifest": "../../config/west.yml",
+  "catalog": "../../product.json",
+  "archive_relocations": "../../archive/relocations.json",
+  "source_snapshots_byte_preserved": true,
+  "local_file_links_checked": 324,
+  "github_ci": "workflow pinned locally; not executed on GitHub",
+  "hardware_acceptance": "BLE stability and ESB radio remain unverified"
+}

@@ -6,6 +6,7 @@ Dữ liệu gốc được giữ nguyên khi gom thư mục. Các kết luận c
 
 | File | Phạm vi |
 | --- | --- |
+| [product-independence-2026-10-28.json](product-independence-2026-10-28.json) | Sản phẩm độc lập, archive nguồn cũ, build BLE byte-identical và ESB cách ly |
 | [esb-prototype-2026-10-28.json](esb-prototype-2026-10-28.json) | Ba build đạt, baseline BLE byte-identical, 97 assertion tạm; chưa flash/radio |
 | [esb-source-audit-2026-10-28.json](esb-source-audit-2026-10-28.json) | 18 file nguồn/giấy phép đã kiểm hash, 3 probe tĩnh; chưa build/radio |
 | [curved-layout-preflight-2026-10-28.json](curved-layout-preflight-2026-10-28.json) | Chỉ thay hình học 47 phím, config/keymap/transform giữ nguyên |

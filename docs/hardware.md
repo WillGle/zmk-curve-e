@@ -217,7 +217,7 @@ Không đọc mã IC/giá trị điện trở bằng suy đoán từ vệt chữ
 Khảo sát mở rộng tìm được repo `Deemen17/CruveE` nhưng repo rỗng; có firmware
 Curve ở nhánh dev của `zmk-keyboards-dekb`, chưa tìm thấy CAD/Gerber/BOM trong
 phạm vi đã kiểm tra. Xem [nguồn công khai](references/public-sources.md) và bản sao nguồn
-kèm license/checksum trong `hardware/upstream/`.
+kèm license/checksum trong `archive/upstream/`.
 
 - [Trạng thái tự chủ và phần còn thiếu](status.md).
 - [Nhận diện linh kiện, pinout ứng viên và phép đo](../hardware/components-and-measurements.md).

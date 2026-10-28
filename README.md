@@ -1,35 +1,52 @@
-# Curve E — PCB Prototype 1
+# Curve E Firmware
 
-Bàn phím Curve E do Deemen17 thiết kế. Repo này phục vụ tự cập nhật và duy trì
-firmware ZMK cho bo hiện có bằng công cụ local, tiếp tục cập nhật khi vendor
-không còn cung cấp bản mới. Không cần sửa PCB để cập nhật firmware ứng dụng.
-Tư liệu phần cứng được giữ riêng để hỗ trợ bảo trì và phục dựng khi cần.
+Firmware và công cụ bảo trì độc lập cho **Curve E PCB Prototype 1**, dựa trên
+ZMK. Dự án duy trì board source, cấu hình, quy trình build và bằng chứng kiểm
+chứng tại local; ZMK/Zephyr là dependency được khóa revision.
+
+Phần cứng do Deemen17 thiết kế. Dự án kế thừa board/config ban đầu, giữ nguồn
+gốc và copyright tại [NOTICE](NOTICE.md); được phát triển và bảo trì riêng.
 
 | Bạn cần gì? | Bắt đầu ở đâu? |
 | --- | --- |
 | Sử dụng, nạp firmware, đổi phím hoặc khôi phục | [Hướng dẫn thao tác](guides/README.md) |
-| Hiểu thiết kế, cấu hình và kết quả kiểm chứng | [Tài liệu kỹ thuật](docs/README.md) |
-| Lấy firmware để nạp | [Danh mục firmware](firmware/README.md) |
-| Sửa chữa hoặc triển khai lại phần cứng | [Tư liệu phần cứng](hardware/README.md) |
+| Hiểu thiết kế, cấu hình và mức kiểm chứng | [Tài liệu kỹ thuật](docs/README.md) |
+| Lấy firmware để sử dụng | [Danh mục firmware chính](firmware/README.md) |
+| Tra cứu hoặc phục dựng phần cứng | [Tư liệu phần cứng](hardware/README.md) |
+| Phát triển và đóng góp | [Quy trình phát triển](CONTRIBUTING.md) |
 
-## Trạng thái hiện tại
+## Tính năng và trạng thái
 
-- Firmware mới đã build offline, nạp và xác nhận USB/Studio; **còn chờ thử
-  phím/nút hybrid, BLE và sleep/wake**.
-  [Bản hiện hành và checksum](firmware/README.md) ghi rõ phạm vi tương thích.
-- Đã ghi nhận GPIO từ firmware, ảnh PCB, USB và bootloader. **Chưa có schematic,
-  PCB CAD hoặc BOM đủ để chế tạo.** Xem [phần còn thiếu](docs/status.md).
-- Nguồn dẫn ngoài repo được gom tại [nguồn tham khảo](docs/references/README.md).
+- **Bản chính USB/BLE:** Studio qua USB, layout cong 47 phím, keymap nhiều
+  layer và mouse emulation. Đã xác nhận USB/Studio; còn nghiệm thu BLE thực tế,
+  nút hybrid và sleep/wake. BLE là wireless mặc định và là yêu cầu ổn định bắt buộc.
+- **ESB 2,4 GHz:** prototype USB+ESB riêng cho Curve E và receiver nRF52840 DK.
+  Đã build/probe phần mềm; chưa nạp/thử radio, chưa tích hợp ba mode vào bản chính.
+  [Nguồn và giới hạn](experimental/esb/README.md).
+- **Phần cứng:** đã có ảnh, GPIO/matrix và thông tin USB/bootloader. Chưa có
+  schematic/CAD/BOM đầy đủ để chế tạo. [Trạng thái tự chủ](docs/status.md).
 
-Bản đang cài: `2026-10-28-zmk-4dd95d7-ble-compat-curved` — bỏ nhập passkey,
-BLE ưu tiên tương thích; [chi tiết và phần còn cần thử](docs/bluetooth.md).
+Không coi build đạt là nghiệm thu độ ổn định không dây. Phân biệt artifact
+chính, thử nghiệm và bằng chứng lịch sử tại [firmware](firmware/README.md).
 
-## Phát triển firmware
+## Build và cấu trúc nguồn
 
-Mã nguồn board tại [boards/curve_e/](boards/curve_e/board.yml), cấu hình tại
-[config/](config/curve_e.conf), module tại [zephyr/module.yml](zephyr/module.yml).
-Target `curve_e//zmk`; ZMK khóa commit trong [config/west.yml](config/west.yml).
-Làm theo [hướng dẫn build](guides/build-firmware.md); workspace ở
-`build/curve-e/`, bản bàn giao được lưu riêng trong `firmware/releases/`.
+```sh
+./tools/build-firmware.sh       # Bản chính, offline từ cache đã pin
+./tools/build-esb.sh all        # Prototype cách ly; không nạp thiết bị
+```
+
+Máy mới cần chuẩn bị workspace/image trước theo [hướng dẫn build](guides/build-firmware.md).
+Cả hai lệnh lưu log/config/artifact trong repo và không tự ghi đè release.
+Không truy cập serial, flash hay thay bootloader.
+
+[product.json](product.json) là danh mục hiện hành: board target, image build,
+manifest dependency và release baseline. Source ZMK chuẩn ở [boards/curve_e](boards/curve_e/board.yml),
+[config](config/curve_e.conf) và [zephyr/module.yml](zephyr/module.yml).
+Giữ target `curve_e//zmk` và định danh USB/BLE hiện có.
+
+Nguồn cũ chỉ dùng tham chiếu được gom tại [archive](archive/README.md).
+
+Xem [thay đổi](CHANGELOG.md), [giấy phép](LICENSE) và [attribution](NOTICE.md).
 
 ![PCB Curve E Prototype 1](hardware/evidence/pcb-front-user.png)

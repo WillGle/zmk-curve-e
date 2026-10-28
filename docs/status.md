@@ -25,7 +25,7 @@ không phải yêu cầu thay mạch cho mỗi lần cập nhật ứng dụng.
 | Khả năng | Bằng chứng hiện có | Giới hạn |
 | --- | --- | --- |
 | Tự duy trì firmware | [Board và build](firmware.md); ZMK/Zephyr commit đã ghi; artifact mới trong repo | Build offline byte-identical; đã nạp, USB/Studio đạt; còn thử chức năng thực tế |
-| Giữ nguồn vendor công khai | [Manifest snapshot](../hardware/upstream/sources.json), archive MIT kèm LICENSE | Nhánh dev không phải firmware đã chứng minh chạy trên bo |
+| Giữ nguồn vendor công khai | [Manifest snapshot](../archive/upstream/sources.json), archive MIT kèm LICENSE | Nhánh dev không phải firmware đã chứng minh chạy trên bo |
 | Xác định firmware đang cài | [Chuỗi trong dump](evidence/installed-firmware-strings-2026-10-28.json): Zephyr 3.5.0, DEKB 20260426, build dacab4875df7 | Chưa truy ra nguồn chính xác; marker dùng chung nhiều board |
 | Nạp app qua bootloader | [Phiên nạp thực tế](evidence/flash-session-2026-10-28.json), USB và Studio mới hoạt động | Chưa thử rollback; bản bootloader `dirty` chưa đối chiếu binary |
 | Sao lưu firmware cũ | CURRENT.UF2 riêng tư, checksum; vùng `[0x1000,0xEA000)` | Thiếu MBR, bootloader, settings cuối flash, UICR; chưa thử restore |
@@ -34,9 +34,9 @@ không phải yêu cầu thay mạch cho mỗi lần cập nhật ứng dụng.
 
 ## Nguồn đã giữ
 
-[Hướng dẫn snapshot](../hardware/upstream/README.md) ghi phạm vi, license và
+[Hướng dẫn snapshot](../archive/upstream/README.md) ghi phạm vi, license và
 cách kiểm tra. Hai snapshot firmware MIT, nguồn nền bootloader kèm license gốc,
-và hai file thư viện KiCad được giữ tại `hardware/upstream/`. Thư viện chưa tìm
+và hai file thư viện KiCad được giữ tại `archive/upstream/`. Thư viện chưa tìm
 thấy license cấp repo; không suy ra quyền tái sử dụng/phân phối. Nguồn bootloader
 nền không chứa phần sửa `dirty` hoặc toàn bộ submodule. Chưa có bản mirror đầy đủ
 mọi dependency/toolchain để cam kết build offline trên máy mới.

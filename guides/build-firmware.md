@@ -1,71 +1,64 @@
-# Tự build firmware Curve E
+# Build Curve E Firmware
 
-[Hướng dẫn](README.md) · [Tài liệu firmware](../docs/firmware.md)
+[Hướng dẫn](README.md) · [Quy trình phát triển](../CONTRIBUTING.md)
 
-## Build
+## Build offline trên workspace hiện có
 
-GitHub Actions dùng [build.yaml](../build.yaml), target `curve_e//zmk` và
-snippet Studio. Workflow ZMK nhận diện `zephyr/module.yml` để nạp module repo.
-Chưa push thay đổi đồng nghĩa CI trên GitHub chưa kiểm tra cấu hình local này.
-
-Build từ thư mục gốc repo. Workspace cố định là `build/curve-e/`:
+Từ gốc repository:
 
 ```sh
-mkdir -p build/curve-e/config build/curve-e/module
-cp -R config/. build/curve-e/config/
-cp -R boards zephyr build/curve-e/module/
+./tools/build-firmware.sh
+./tools/build-esb.sh all
+```
+
+Lệnh đầu build USB/BLE chính. Lệnh thứ hai build prototype USB+ESB cách ly và
+baseline; không ghép ESB vào BLE. Cả hai kiểm 56 dependency sạch/đúng revision,
+dùng image digest trong [product.json](../product.json), không tải mạng, flash
+hoặc mở serial. Cần Docker và quyền truy cập Docker.
+
+Manifest hiện hành [config/west.yml](../config/west.yml) đã resolve toàn bộ
+project, khóa full commit SHA cho ZMK, Zephyr và dependency, không còn import
+nhánh động. Không tự sửa cache để vượt qua kiểm tra nguồn sạch.
+
+Bản chính lưu vào `firmware/verification/<timestamp>-product/`, gồm UF2,
+config, DTS, frozen manifest, source/dependency hashes và log. `build.json` ghi
+kết quả so sánh với baseline tại `product.json`; khác binary không đồng nghĩa
+đã được chấp thuận thay firmware đang dùng. Không ghi đè release tự động.
+
+ESB lưu tại `firmware/experimental/builds/<timestamp>/`; binary có khóa và key
+header ở `firmware/experimental/private/`, bị loại khỏi Git. Xem
+[module ESB](../experimental/esb/README.md). Workspace/cache sinh ra ở
+`build/curve-e/`; artifact đã archive không phụ thuộc việc giữ build output.
+
+## Chuẩn bị máy mới — thao tác có mạng riêng
+
+Cần Python 3, Docker, image đúng digest và dependency đúng manifest. Máy mới
+chưa được xác nhận offline cho đến khi chuẩn bị đủ cache. Từ gốc repo:
+
+```sh
+mkdir -p build/curve-e/config
+cp config/west.yml build/curve-e/config/west.yml
+image=$(python3 tools/product.py build.image)
+docker pull "$image"
 docker run --rm --user "$(id -u):$(id -g)" \
-  -e HOME=/tmp/curve-home \
-  -v "$PWD/build/curve-e:/work" -w /work \
-  zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5 sh -c '
-    mkdir -p "$HOME" &&
-    { test -d .west || west init -l config; } &&
-    west update --narrow --fetch-opt=--depth=1 &&
-    west zephyr-export &&
-    west build -p always -s zmk/app -d build -b curve_e//zmk \
-      -S studio-rpc-usb-uart -- \
-      -DZMK_CONFIG=/work/config -DZMK_EXTRA_MODULES=/work/module &&
-    west manifest --freeze --active-only > /work/west-frozen.yml
-  ' > build/curve-e/build-final.log 2>&1
+  -e HOME=/tmp/curve-bootstrap-home \
+  -v "$PWD/build/curve-e:/work" -w /work "$image" sh -ec '
+    mkdir -p "$HOME"
+    test -d .west || west init -l config
+    west update --narrow --fetch-opt=--depth=1
+  '
 ```
 
-Lệnh cần Docker và quyền dùng Docker. `HOME=/tmp/curve-home` chỉ là home nội bộ
-container; dependency, source snapshot, output và log đều lưu dưới repo.
-Nếu xóa/đổi tên tệp nguồn, xóa snapshot `build/curve-e/config` và
-`build/curve-e/module` trước khi copy lại để tránh giữ tệp cũ trong workspace.
-Chỉ dọn hai snapshot này, không xóa nguồn `config/`, `boards/`, `zephyr/`.
+Đây là bước bootstrap có mạng được người vận hành chủ động chạy; không nằm
+trong build mặc định. Sau đó chạy build offline ở trên. Nếu cache đang có thay
+đổi riêng, giữ nguyên và điều tra trước khi cập nhật; không reset/clean tự động.
+Các lệnh bootstrap chưa được thử trên một máy trắng trong đợt tái cấu trúc.
 
-Đầu ra: `build/curve-e/build/zephyr/zmk.uf2`. Sau khi build đạt, lưu vào một
-thư mục phiên bản mới dưới `firmware/releases/` cùng `build-final.log`, `.config`,
-`zephyr.dts`, `west-frozen.yml` và manifest/hash tương ứng. Không ghi đè
-archive cũ bằng firmware từ nguồn khác. Bản hiện hành được liệt kê tại [danh mục firmware](../firmware/README.md).
-Không nạp hoặc thay bootloader tự động.
+## CI và phát hành
 
-## Build offline từ workspace đã kiểm chứng
+Workflow build chính dùng reusable workflow ZMK được pin cùng revision; chỉ
+build target chính trong `build.yaml`. Cấu hình CI local không phải bằng chứng
+GitHub Actions đã chạy. Không có workflow công khai chứa private pair key ESB.
 
-Lệnh dưới đây đã chạy thành công bằng dependency/image local ngày 28/10/2026,
-tạo UF2 byte-identical với bản hiện hành. Nó không chạy `west update` hoặc tải
-mạng. Cần workspace `build/curve-e/` đã có dependency đúng frozen manifest và
-snapshot nguồn khớp repo; máy mới vẫn phải chuẩn bị dependency/image trước.
-
-```sh
-docker run --rm --network none --user "$(id -u):$(id -g)" \
-  -e HOME=/tmp/curve-offline-home \
-  -v "$PWD/build/curve-e:/work" -w /work \
-  zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5 \
-  sh -c '
-    mkdir -p "$HOME" &&
-    west zephyr-export &&
-    west build -p always -s zmk/app -d verification-offline-2026-10-28 \
-      -b curve_e//zmk -S studio-rpc-usb-uart -- \
-      -DZMK_CONFIG=/work/config -DZMK_EXTRA_MODULES=/work/module &&
-    west manifest --freeze --active-only > \
-      /work/verification-offline-2026-10-28/west-frozen.yml
-  ' > build/curve-e/offline-verification-2026-10-28.log 2>&1
-```
-
-[Bằng chứng offline](../firmware/verification/2026-10-28-offline/verification.json)
-và log được lưu riêng, không ghi đè release. Khi thực hiện phiên kiểm chứng
-mới, dùng hậu tố thư mục/log khác. Để tái tạo chính xác archive cũ từ workspace
-mới, lấy revision từng dependency từ `west-frozen.yml` của archive; nhánh
-Zephyr trong manifest online có thể tiến lên dù ZMK được pin commit.
+Quy trình nghiệm thu/phát hành tại [CONTRIBUTING](../CONTRIBUTING.md).
+Nguồn tham chiếu cũ chỉ ở [archive](../archive/README.md), không là dependency build.

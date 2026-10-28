@@ -4,11 +4,10 @@
 
 ## Phiên bản và cấu trúc
 
-ZMK: `4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85`, đầu `main` được tra cứu
-trong đợt nâng cấp ngày 28/10/2026. Khóa commit trong
-[west.yml](../config/west.yml) để build có thể lặp lại. Zephyr được ZMK chọn
-bằng nhánh `v4.1.0+zmk-fixes`; revision đã resolve khi build được ghi trong
-[kết quả kiểm chứng](verification.md). Dependency nhánh có thể thay đổi khi cập nhật workspace.
+Danh mục hiện hành ở [product.json](../product.json). ZMK, Zephyr và toàn bộ
+56 dependency được khóa full commit SHA tại [manifest](../config/west.yml),
+không còn nested import hoặc nhánh động. Mỗi archive giữ frozen manifest riêng;
+manifest lịch sử không bị viết lại khi đổi cấu trúc sản phẩm.
 
 [Module](../zephyr/module.yml) cung cấp board tại `boards/curve_e`.
 Board target mới: **`curve_e//zmk`**, SoC nRF52840 QIAA. Không dùng target

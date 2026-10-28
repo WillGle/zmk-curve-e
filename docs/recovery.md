@@ -64,7 +64,7 @@ Code partition đã được giới hạn tại `0xEA000` và build lại riêng
 [Preflight mới](evidence/uf2-preflight-flash-bound-2026-10-28.json) xác nhận 930 block,
 range `[0x26000,0x60200)`, vector và hash nguồn. Finding capacity của archive
 cũ đã xử lý trong source/artifact mới; các giới hạn backup/SWD/dirty vẫn còn.
-Nguồn nền được giữ tại [upstream](../hardware/upstream/README.md); hash một số
+Nguồn nền được giữ tại [upstream](../archive/upstream/README.md); hash một số
 file fork khác upstream cùng commit ID, nên manifest nguồn giữ riêng từng bản.
 
 ## Phiên nạp ứng dụng sau audit

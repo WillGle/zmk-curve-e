@@ -12,7 +12,7 @@ Tư liệu hiện có phục vụ nhận diện, sửa chữa và tiếp tục p
 | BOM đủ mã linh kiện/giá trị | Chưa có; IC nguồn/sạc và nhiều linh kiện chưa nhận diện |
 | Ảnh và bản ghi USB | [evidence/](evidence/README.md) |
 | Nhận diện linh kiện, pinout ứng viên, bảng phép đo | [components-and-measurements.md](components-and-measurements.md) |
-| Nguồn tham khảo gốc, thư viện và bootloader nền | [upstream/](upstream/README.md), kèm manifest và license khi có |
+| Nguồn tham khảo gốc, thư viện và bootloader nền | [nguồn lưu trữ](../archive/upstream/README.md), kèm manifest và license khi có |
 
 ## Cấu hình lắp thực tế
 

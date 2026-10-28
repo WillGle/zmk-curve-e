@@ -71,9 +71,9 @@ trả `No commit found for SHA`; chưa giải được hash build theo nguồn c
 
 ## Archive và phụ thuộc để tiếp tục độc lập
 
-Hai archive công khai đã lưu tại `hardware/upstream/` sau khi người dùng cho phép.
+Hai archive công khai đã lưu tại `archive/upstream/` sau khi người dùng cho phép.
 Source đã giải nén nằm trong hai thư mục `zmk-keyboards-dekb-<commit>` cùng
-LICENSE MIT nguyên bản. [Manifest nguồn và checksum](../../hardware/upstream/sources.json)
+LICENSE MIT nguyên bản. [Manifest nguồn và checksum](../../archive/upstream/sources.json)
 ghi URL, commit, SHA256, kích thước và số file đã đối chiếu từng byte với archive.
 Thư mục `deemen17_Library-6987369a6cf93b043e7f6f9a0715fac06c0e0e0a` chỉ giữ
 footprint E73 và file symbol nguyên bản, không phải toàn bộ thư viện. Không có
@@ -125,8 +125,8 @@ thuộc vendor.
 - [Driver ESB Kconfig](https://github.com/ph-design/zmk/blob/aba1104a9777d851df1c3ea032468d44c42ed3f0/app/module/drivers/esb/Kconfig).
 
 Shield DENGLE còn có trong snapshot `66f10de4dd1c5728e36670091cb84a9481234cb7`
-đã lưu tại `hardware/upstream/`; xem manifest nguồn hiện có. Có nguồn ESB không
+đã lưu tại `archive/upstream/`; xem manifest nguồn hiện có. Có nguồn ESB không
 xác nhận Curve E đã build/chạy ba mode. Xem [kết luận](../connection-modes.md).
 
 Các file fork đã audit được lưu nguyên bản cùng LICENSE và hash từng file tại
-[manifest ESB](../../hardware/upstream/ph-design-zmk-aba1104-esb/source.json).
+[manifest ESB](../../archive/upstream/ph-design-zmk-aba1104-esb/source.json).
