@@ -1,0 +1,49 @@
+{
+  "verified_at_utc": "2026-10-28T09:10:41.091108+00:00",
+  "method": "Fresh pristine build in pinned Docker container with --network none; no west update, device writes or serial commands",
+  "image": "zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5",
+  "workspace": "build/curve-e",
+  "output_directory": "build/curve-e/verification-offline-2026-10-28",
+  "command": "west build -p always -s zmk/app -d verification-offline-2026-10-28 -b curve_e//zmk -S studio-rpc-usb-uart -- -DZMK_CONFIG=/work/config -DZMK_EXTRA_MODULES=/work/module",
+  "compared_release": "firmware/releases/2026-10-28-zmk-4dd95d7-flash-bound",
+  "build_exit_code": 0,
+  "uf2_sha256": "8a188c54e9b7b8ccbb2349fdf21feac3aa2c8fc1c9679d27e6e4f0d4a511a3ed",
+  "uf2_byte_identical_to_release": true,
+  "frozen_manifest_byte_identical": true,
+  "source_hashes_match_release": true,
+  "source_snapshots_match_repo": true,
+  "checked_dependency_worktrees_clean": [
+    "zmk",
+    "zephyr",
+    "modules/hal/nordic",
+    "modules/msgs/zmk-studio-messages"
+  ],
+  "flash_used_bytes": 238004,
+  "ram_used_bytes": 70852,
+  "effective_config_checks_passed": [
+    "CONFIG_ZMK_STUDIO=y",
+    "CONFIG_ZMK_STUDIO_RPC=y",
+    "CONFIG_ZMK_STUDIO_TRANSPORT_UART=y",
+    "CONFIG_ZMK_STUDIO_TRANSPORT_BLE=y",
+    "CONFIG_ZMK_POINTING=y",
+    "CONFIG_EC11=y",
+    "CONFIG_ZMK_SLEEP=y",
+    "CONFIG_ZMK_BATTERY_REPORTING=y",
+    "CONFIG_BT_PERIPHERAL_PREF_LATENCY=0",
+    "CONFIG_RETENTION_BOOT_MODE=y",
+    "CONFIG_ZMK_BOOTMODE_MAGIC_VALUE_BOOTLOADER_TYPE_ADAFRUIT_NRF52=y",
+    "CONFIG_ZMK_HID_REPORT_TYPE_NKRO=y",
+    "CONFIG_ZMK_USB_BOOT=y",
+    "CONFIG_USB_HID_BOOT_PROTOCOL=y"
+  ],
+  "release_and_private_backup_checksums_pass": true,
+  "build_log_sha256": "5606ba60ee51c1f68aa6db4c428e6ae9b3ab137f6ced268b27af2dd3501b7fa1",
+  "device": {
+    "application_usb": "DEKB / CURVE E BLE (de17:40e1)",
+    "bootloader_mount_present": false,
+    "serial_visible_in_sandbox": false,
+    "serial_visible_outside_sandbox": "/dev/ttyACM0"
+  },
+  "flashed": false,
+  "runtime_verified": false
+}
