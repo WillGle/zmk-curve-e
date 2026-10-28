@@ -1,0 +1,28 @@
+{
+  "schema_version": 1,
+  "id": "curve-e",
+  "name": "Curve E Firmware",
+  "status": "maintained; hardware acceptance incomplete",
+  "board": "curve_e//zmk",
+  "config": "config",
+  "module": ".",
+  "manifest": "config/west.yml",
+  "build": {
+    "image": "zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5",
+    "workspace": "build/curve-e",
+    "snippet": "studio-rpc-usb-uart"
+  },
+  "firmware": {
+    "current": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved",
+    "wireless_default": "BLE",
+    "runtime_status": "USB/Studio verified; BLE stability and sleep/wake acceptance pending"
+  },
+  "experimental": {
+    "esb": {
+      "module": "experimental/esb",
+      "receiver_board": "nrf52840dk/nrf52840/zmk",
+      "receiver_shield": "curve_esb_receiver",
+      "status": "isolated USB+ESB prototype; no radio acceptance"
+    }
+  }
+}

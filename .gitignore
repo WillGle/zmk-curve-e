@@ -21,3 +21,8 @@ backup/
 
 # Experimental pair secrets and firmware containing the local pair key.
 /firmware/experimental/private/
+
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
