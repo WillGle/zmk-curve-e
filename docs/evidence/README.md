@@ -6,6 +6,7 @@ Dữ liệu gốc được giữ nguyên khi gom thư mục. Các kết luận c
 
 | File | Phạm vi |
 | --- | --- |
+| [local-update-audit-2026-10-28.json](local-update-audit-2026-10-28.json) | Audit local mới: USB, checksum, UF2, cache dependency/toolchain và upstream |
 | [bootloader-2026-10-28.json](bootloader-2026-10-28.json) | INFO_UF2, metadata dump, kiểm tra thoát bootloader và nhận định tiếp sau |
 | [installed-firmware-strings-2026-10-28.json](installed-firmware-strings-2026-10-28.json) | Chuỗi phiên bản trong dump cũ; chưa định danh nguồn byte-exact |
 | [uf2-preflight-2026-10-28.json](uf2-preflight-2026-10-28.json) | Đánh giá archive đầu; phát hiện capacity vượt giới hạn 8 KiB |

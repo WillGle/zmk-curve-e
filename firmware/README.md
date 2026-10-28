@@ -19,6 +19,7 @@ Thông tin này chưa bảo đảm tương thích mọi revision Curve E.
 - [Manifest nguồn và cấu hình build](releases/2026-10-28-zmk-4dd95d7-flash-bound/build.json).
 - [SHA256SUMS](releases/2026-10-28-zmk-4dd95d7-flash-bound/SHA256SUMS).
 - [Kết quả kiểm chứng và giới hạn](../docs/verification.md).
+- [Trạng thái board và checklist nâng cấp local](../docs/update-checklist.md).
 
 Tại thư mục bản đã chọn, chạy `sha256sum -c SHA256SUMS` trước khi dùng.
 Đọc [cách cài](../guides/install-firmware.md) và

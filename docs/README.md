@@ -4,6 +4,7 @@
 
 | Tài liệu | Nội dung |
 | --- | --- |
+| [Trạng thái board và việc cần làm](update-checklist.md) | Kiểm tra local mới nhất, mức sẵn sàng nâng cấp và checklist nạp/thử |
 | [Firmware](firmware.md) | Phiên bản ZMK, cấu trúc module và giới hạn tính năng PCB |
 | [Phần cứng](hardware.md) | GPIO, ma trận, encoder, cầu chia áp và USB từ firmware/khảo sát |
 | [Kiểm chứng](verification.md) | Kết quả build, checksum, preflight và phần chưa kiểm thử runtime |

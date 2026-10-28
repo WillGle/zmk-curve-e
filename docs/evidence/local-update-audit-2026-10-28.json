@@ -1,0 +1,347 @@
+{
+  "checked_at_utc": "2026-10-28T09:00:01.447602+00:00",
+  "method": "Read-only USB sysfs, local hashes/config/UF2 and cached dependency revisions; no flash or input-event test",
+  "usb": [
+    {
+      "sysfs": "/sys/bus/usb/devices/1-1",
+      "vid_pid": "de17:40e1",
+      "product": "CURVE E BLE"
+    }
+  ],
+  "bootloader_mounts": [],
+  "tty_acm_nodes": [],
+  "artifact": "firmware/releases/2026-10-28-zmk-4dd95d7-flash-bound/zmk.uf2",
+  "artifact_sha256": "8a188c54e9b7b8ccbb2349fdf21feac3aa2c8fc1c9679d27e6e4f0d4a511a3ed",
+  "source_hashes_match": true,
+  "release_checksums_pass": true,
+  "uf2_blocks": 930,
+  "write_range": [
+    "0x26000",
+    "0x60200"
+  ],
+  "uf2_family": "0xada52840",
+  "vectors": {
+    "sp": "0x2000e2c0",
+    "reset": "0x2f8c9"
+  },
+  "effective_config_checks": [
+    "CONFIG_ZMK_STUDIO=y",
+    "CONFIG_ZMK_STUDIO_RPC=y",
+    "CONFIG_ZMK_STUDIO_TRANSPORT_UART=y",
+    "CONFIG_ZMK_STUDIO_TRANSPORT_BLE=y",
+    "CONFIG_ZMK_POINTING=y",
+    "CONFIG_EC11=y",
+    "CONFIG_ZMK_SLEEP=y",
+    "CONFIG_ZMK_BATTERY_REPORTING=y",
+    "CONFIG_BT_PERIPHERAL_PREF_LATENCY=0",
+    "CONFIG_RETENTION_BOOT_MODE=y",
+    "CONFIG_ZMK_BOOTMODE_MAGIC_VALUE_BOOTLOADER_TYPE_ADAFRUIT_NRF52=y",
+    "CONFIG_ZMK_HID_REPORT_TYPE_NKRO=y",
+    "CONFIG_ZMK_USB_BOOT=y",
+    "CONFIG_USB_HID_BOOT_PROTOCOL=y"
+  ],
+  "workspace_uf2_matches_release": true,
+  "cached_projects_matching_frozen_manifest": [
+    {
+      "name": "zmk",
+      "path": "build/curve-e/zmk",
+      "revision": "4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85"
+    },
+    {
+      "name": "zephyr",
+      "path": "build/curve-e/zephyr",
+      "revision": "10ba6d0cb38bc3d258775d27982f707599320085"
+    },
+    {
+      "name": "hal_stm32",
+      "path": "build/curve-e/modules/hal/stm32",
+      "revision": "4fcc3a3f32abe1c4cb76d9d1cef967728dd03908"
+    },
+    {
+      "name": "lvgl",
+      "path": "build/curve-e/modules/lib/gui/lvgl",
+      "revision": "f1db87ee98f1810328a8419572fa42a3b5f352ae"
+    },
+    {
+      "name": "zmk-studio-messages",
+      "path": "build/curve-e/modules/msgs/zmk-studio-messages",
+      "revision": "6cb4c283e76209d59c45fbcb218800cd19e9339d"
+    },
+    {
+      "name": "canopennode",
+      "path": "build/curve-e/modules/lib/canopennode",
+      "revision": "dec12fa3f0d790cafa8414a4c2930ea71ab72ffd"
+    },
+    {
+      "name": "chre",
+      "path": "build/curve-e/modules/lib/chre",
+      "revision": "3b32c76efee705af146124fb4190f71be5a4e36e"
+    },
+    {
+      "name": "lz4",
+      "path": "build/curve-e/modules/lib/lz4",
+      "revision": "11b8a1e22fa651b524494e55d22b69d3d9cebcfd"
+    },
+    {
+      "name": "nanopb",
+      "path": "build/curve-e/modules/lib/nanopb",
+      "revision": "7307ce399b81ddcb3c3a5dc862c52d4754328d38"
+    },
+    {
+      "name": "psa-arch-tests",
+      "path": "build/curve-e/modules/tee/tf-m/psa-arch-tests",
+      "revision": "2cadb02a72eacda7042505dcbdd492371e8ce024"
+    },
+    {
+      "name": "sof",
+      "path": "build/curve-e/modules/audio/sof",
+      "revision": "bc08c9c606324cfba0c104f4ffaf5dd456cb11d6"
+    },
+    {
+      "name": "tf-m-tests",
+      "path": "build/curve-e/modules/tee/tf-m/tf-m-tests",
+      "revision": "502ea90105ee18f20c78f710e2ba2ded0fc0756e"
+    },
+    {
+      "name": "tflite-micro",
+      "path": "build/curve-e/optional/modules/lib/tflite-micro",
+      "revision": "8d404de73acf7687831e16d88e86e4f73cfddf8e"
+    },
+    {
+      "name": "thrift",
+      "path": "build/curve-e/optional/modules/lib/thrift",
+      "revision": "10023645a0e6cb7ce23fcd7fd3dbac9f18df6234"
+    },
+    {
+      "name": "zephyr-lang-rust",
+      "path": "build/curve-e/modules/lang/rust",
+      "revision": "37dc7fac3fb0372bc0e78e022bef87fcce68c48d"
+    },
+    {
+      "name": "zscilib",
+      "path": "build/curve-e/modules/lib/zscilib",
+      "revision": "ee1b287d9dd07208d2cc52284240ac25bb66eae3"
+    },
+    {
+      "name": "acpica",
+      "path": "build/curve-e/modules/lib/acpica",
+      "revision": "8d24867bc9c9d81c81eeac59391cda59333affd4"
+    },
+    {
+      "name": "cmsis",
+      "path": "build/curve-e/modules/hal/cmsis",
+      "revision": "d1b8b20b6278615b00e136374540eb1c00dcabe7"
+    },
+    {
+      "name": "cmsis-dsp",
+      "path": "build/curve-e/modules/lib/cmsis-dsp",
+      "revision": "d80a49b2bb186317dc1db4ac88da49c0ab77e6e7"
+    },
+    {
+      "name": "cmsis-nn",
+      "path": "build/curve-e/modules/lib/cmsis-nn",
+      "revision": "e9328d612ea3ea7d0d210d3ac16ea8667c01abdd"
+    },
+    {
+      "name": "cmsis_6",
+      "path": "build/curve-e/modules/lib/cmsis_6",
+      "revision": "783317a3072554acbac86cca2ff24928cbf98d30"
+    },
+    {
+      "name": "fatfs",
+      "path": "build/curve-e/modules/fs/fatfs",
+      "revision": "16245c7c41d2b79e74984f49b5202551786b8a9b"
+    },
+    {
+      "name": "hal_adi",
+      "path": "build/curve-e/modules/hal/adi",
+      "revision": "633fcecf3717aaa22079cf6121627a879f24df51"
+    },
+    {
+      "name": "hal_ambiq",
+      "path": "build/curve-e/modules/hal/ambiq",
+      "revision": "87a188b91aca22ce3ce7deb4a1cbf7780d784673"
+    },
+    {
+      "name": "hal_atmel",
+      "path": "build/curve-e/modules/hal/atmel",
+      "revision": "da767444cce3c1d9ccd6b8a35fd7c67dc82d489c"
+    },
+    {
+      "name": "hal_espressif",
+      "path": "build/curve-e/modules/hal/espressif",
+      "revision": "202c59552dc98e5cd02386313e1977ecb17a131f"
+    },
+    {
+      "name": "hal_ethos_u",
+      "path": "build/curve-e/modules/hal/ethos_u",
+      "revision": "50ddffca1cc700112f25ad9bc077915a0355ee5d"
+    },
+    {
+      "name": "hal_gigadevice",
+      "path": "build/curve-e/modules/hal/gigadevice",
+      "revision": "2994b7dde8b0b0fa9b9c0ccb13474b6a486cddc3"
+    },
+    {
+      "name": "hal_intel",
+      "path": "build/curve-e/modules/hal/intel",
+      "revision": "0355bb816263c54eed23c7781034447af5d8200c"
+    },
+    {
+      "name": "hal_nordic",
+      "path": "build/curve-e/modules/hal/nordic",
+      "revision": "37ca068d7b013fb65a2acc9306bffa48a3e72839"
+    },
+    {
+      "name": "hal_nuvoton",
+      "path": "build/curve-e/modules/hal/nuvoton",
+      "revision": "466c3eed9c98453fb23953bf0e0427fea01924be"
+    },
+    {
+      "name": "hal_quicklogic",
+      "path": "build/curve-e/modules/hal/quicklogic",
+      "revision": "bad894440fe72c814864798c8e3a76d13edffb6c"
+    },
+    {
+      "name": "hal_renesas",
+      "path": "build/curve-e/modules/hal/renesas",
+      "revision": "3204903bdc5eda6869a40363560a69369c8d0e22"
+    },
+    {
+      "name": "hal_rpi_pico",
+      "path": "build/curve-e/modules/hal/rpi_pico",
+      "revision": "7b57b24588797e6e7bf18b6bda168e6b96374264"
+    },
+    {
+      "name": "hal_silabs",
+      "path": "build/curve-e/modules/hal/silabs",
+      "revision": "8a173e9e566a396a19d18da4661cb54ce098f268"
+    },
+    {
+      "name": "hal_tdk",
+      "path": "build/curve-e/modules/hal/tdk",
+      "revision": "6727477af1e46fa43878102489b9672a9d24e39f"
+    },
+    {
+      "name": "hal_telink",
+      "path": "build/curve-e/modules/hal/telink",
+      "revision": "4226c7fc17d5a34e557d026d428fc766191a0800"
+    },
+    {
+      "name": "hal_wch",
+      "path": "build/curve-e/modules/hal/wch",
+      "revision": "1de9d3e406726702ce7cfc504509a02ecc463554"
+    },
+    {
+      "name": "hal_wurthelektronik",
+      "path": "build/curve-e/modules/hal/wurthelektronik",
+      "revision": "e3e2797b224fc48fdef1bc3e5a12a7c73108bba2"
+    },
+    {
+      "name": "hostap",
+      "path": "build/curve-e/modules/lib/hostap",
+      "revision": "697fd2cf5cbbd0c5375fc34761b6a9d7489a67d2"
+    },
+    {
+      "name": "liblc3",
+      "path": "build/curve-e/modules/lib/liblc3",
+      "revision": "48bbd3eacd36e99a57317a0a4867002e0b09e183"
+    },
+    {
+      "name": "libmctp",
+      "path": "build/curve-e/modules/lib/libmctp",
+      "revision": "b97860e78998551af99931ece149eeffc538bdb1"
+    },
+    {
+      "name": "libmetal",
+      "path": "build/curve-e/modules/hal/libmetal",
+      "revision": "3e8781aae9d7285203118c05bc01d4eb0ca565a7"
+    },
+    {
+      "name": "littlefs",
+      "path": "build/curve-e/modules/fs/littlefs",
+      "revision": "ed0531d59ee37f5fb2762bcf2fc8ba4efaf82656"
+    },
+    {
+      "name": "mbedtls",
+      "path": "build/curve-e/modules/crypto/mbedtls",
+      "revision": "4952e1328529ee549d412b498ea71c54f30aa3b1"
+    },
+    {
+      "name": "mipi-sys-t",
+      "path": "build/curve-e/modules/debug/mipi-sys-t",
+      "revision": "33e5c23cbedda5ba12dbe50c4baefb362a791001"
+    },
+    {
+      "name": "nrf_hw_models",
+      "path": "build/curve-e/modules/bsim_hw_models/nrf_hw_models",
+      "revision": "73a5d5827a94820be65b7d276d28173ec10bab9f"
+    },
+    {
+      "name": "nrf_wifi",
+      "path": "build/curve-e/modules/lib/nrf_wifi",
+      "revision": "e35f707a782b7c4c0eb83a3b06ca4e6eb693f29f"
+    },
+    {
+      "name": "open-amp",
+      "path": "build/curve-e/modules/lib/open-amp",
+      "revision": "52bb1783521c62c019451cee9b05b8eda9d7425f"
+    },
+    {
+      "name": "percepio",
+      "path": "build/curve-e/modules/debug/percepio",
+      "revision": "49e6dc202aa38c2a3edbafcc2dab85dec6aee973"
+    },
+    {
+      "name": "picolibc",
+      "path": "build/curve-e/modules/lib/picolibc",
+      "revision": "82d62ed1ac55b4e34a12d0390aced2dc9af13fc9"
+    },
+    {
+      "name": "segger",
+      "path": "build/curve-e/modules/debug/segger",
+      "revision": "cf56b1d9c80f81a26e2ac5727c9cf177116a4692"
+    },
+    {
+      "name": "tinycrypt",
+      "path": "build/curve-e/modules/crypto/tinycrypt",
+      "revision": "1012a3ebee18c15ede5efc8332ee2fc37817670f"
+    },
+    {
+      "name": "trusted-firmware-a",
+      "path": "build/curve-e/modules/tee/tf-a/trusted-firmware-a",
+      "revision": "713ffbf96c5bcbdeab757423f10f73eb304eff07"
+    },
+    {
+      "name": "uoscore-uedhoc",
+      "path": "build/curve-e/modules/lib/uoscore-uedhoc",
+      "revision": "54abc109c9c0adfd53c70077744c14e454f04f4a"
+    },
+    {
+      "name": "zcbor",
+      "path": "build/curve-e/modules/lib/zcbor",
+      "revision": "9b07780aca6fb21f82a241ba386ad9b379809337"
+    }
+  ],
+  "recovery_dump_checksum_pass": true,
+  "backup_limit": "Partial CURRENT.UF2 only; no full flash/UICR backup or tested restore",
+  "upstream_check": {
+    "url": "https://api.github.com/repos/zmkfirmware/zmk/commits/main",
+    "observed_sha": "4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85",
+    "matches_pinned_source": true
+  },
+  "flashed": false,
+  "runtime_verified": false,
+  "serial_visibility": {
+    "cdc_acm_driver_bound": true,
+    "kernel_tty": "ttyACM0",
+    "major_minor": "166:0",
+    "dev_node_visible_in_session": false,
+    "interpretation": "Kernel created serial port, but this execution environment does not expose /dev/ttyACM0; not evidence of board failure"
+  },
+  "local_toolchain": {
+    "image": "zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5",
+    "image_id": "sha256:1ff99fe057b9555694e42251d43a0c52255ab9c483228d45245d7799cdcf689c",
+    "cached": true
+  }
+}
