@@ -159,6 +159,24 @@ của UF2 này. USB product/VID/PID mới dùng mặc định ZMK (`Curve E`,
 Khi thay đổi mã/cấu hình tiếp theo, cần build lại và cập nhật manifest kiểm
 chứng cùng đoạn này; hash nguồn cho phép phát hiện bằng chứng build đã cũ.
 
+## Kiểm tra trước khi nạp
+
+Đã kiểm tra chỉ đọc ngày 28/10/2026, sau cleanup:
+
+- Hash nguồn hiện tại khớp manifest build; checksum firmware và các artifact đạt.
+- UF2 có 930 block, số block đầy đủ/không trùng, đúng family nRF52840;
+  địa chỉ và kích thước căn chỉnh, các khoảng ghi không chồng nhau.
+- Khoảng ghi là `[0x26000, 0x60200)`, nằm trong code partition của repo;
+  không có block ghi SoftDevice, storage, bootloader hoặc UICR theo sơ đồ này.
+- USB đang nhận `CURVE E BLE`, VID:PID `DE17:40E1`; chưa thấy ổ bootloader
+  hoặc `INFO_UF2.TXT` trong các vị trí mount thông thường. Chưa reset hoặc nạp.
+
+Các kiểm tra này chưa xác minh partition/bootloader thực trên thiết bị và
+không thay thế thử GPIO, BLE, encoder hay sleep/wake trên bo thật. Bước tiếp
+theo là vào bootloader, đọc `INFO_UF2.TXT` và kiểm tra có thể thoát về firmware
+cũ trước khi ghi file. Nên có UF2 cũ đã chạy tốt làm bản quay lui; phiên này
+chưa sao lưu firmware đang nằm trong flash của bàn phím.
+
 ## Tài liệu chính thức đã đối chiếu
 
 - [Board mới](https://zmk.dev/docs/hardware-integration/new-board)
