@@ -1,5 +1,10 @@
 # Firmware thử nghiệm ESB
 
+> **Quyết định hiện hành — 28/10/2026:** dừng phát triển receiver USB dongle
+> và ESB 2,4 GHz. Sản phẩm chỉ tiếp tục với **cáp USB và Bluetooth BLE**, BLE
+> là wireless mặc định. Nội dung ESB bên dưới giữ làm lịch sử tham chiếu,
+> không phải kế hoạch tiếp tục, hướng dẫn mua receiver hoặc firmware để nạp.
+
 **Firmware BLE chính không thay đổi.** Chỉ dùng bản hiện hành ở
 [releases](../README.md). Những bản dưới đây chưa nạp hay kiểm chứng radio,
 không phải firmware ba mode sẵn sàng sử dụng.

@@ -1,5 +1,10 @@
 # Curve ESB — prototype riêng, không thay firmware BLE
 
+> **Quyết định hiện hành — 28/10/2026:** dừng phát triển receiver USB dongle
+> và ESB 2,4 GHz. Sản phẩm chỉ tiếp tục với **cáp USB và Bluetooth BLE**, BLE
+> là wireless mặc định. Nội dung ESB bên dưới giữ làm lịch sử tham chiếu,
+> không phải kế hoạch tiếp tục, hướng dẫn mua receiver hoặc firmware để nạp.
+
 Mục tiêu và thiết kế: [phát triển ESB](../../docs/esb-development.md).
 Đây là firmware thử nghiệm **USB+ESB**, không phải bản ba mode đã nghiệm thu.
 Kconfig bắt buộc `!ZMK_BLE`; không có thay đổi `ble.c` hay lifecycle Bluetooth.
