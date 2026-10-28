@@ -1,0 +1,33 @@
+{
+  "verified_at_utc": "2026-10-28T08:34:43.470272+00:00",
+  "artifact": "firmware/2026-10-28-zmk-4dd95d7-flash-bound/zmk.uf2",
+  "sha256": "8a188c54e9b7b8ccbb2349fdf21feac3aa2c8fc1c9679d27e6e4f0d4a511a3ed",
+  "blocks": 930,
+  "family": "0xada52840",
+  "write_range": [
+    "0x26000",
+    "0x60200"
+  ],
+  "code_partition_end": "0xea000",
+  "initial_sp": "0x2000e2c0",
+  "reset_handler": "0x2f8c9",
+  "source_snapshot_matches_repo": true,
+  "effective_config_checks_passed": [
+    "CONFIG_ZMK_STUDIO=y",
+    "CONFIG_ZMK_STUDIO_RPC=y",
+    "CONFIG_ZMK_STUDIO_TRANSPORT_UART=y",
+    "CONFIG_ZMK_STUDIO_TRANSPORT_BLE=y",
+    "CONFIG_ZMK_POINTING=y",
+    "CONFIG_EC11=y",
+    "CONFIG_ZMK_SLEEP=y",
+    "CONFIG_ZMK_BATTERY_REPORTING=y",
+    "CONFIG_BT_PERIPHERAL_PREF_LATENCY=0",
+    "CONFIG_RETENTION_BOOT_MODE=y",
+    "CONFIG_ZMK_BOOTMODE_MAGIC_VALUE_BOOTLOADER_TYPE_ADAFRUIT_NRF52=y",
+    "CONFIG_ZMK_HID_REPORT_TYPE_NKRO=y",
+    "CONFIG_ZMK_USB_BOOT=y",
+    "CONFIG_USB_HID_BOOT_PROTOCOL=y"
+  ],
+  "baseline_family_acceptance": "See uf2-preflight-2026-10-28.json; dirty binary differences unknown",
+  "flashed": false
+}

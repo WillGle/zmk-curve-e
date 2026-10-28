@@ -13,7 +13,7 @@
     "0xea000"
   ],
   "new_firmware_family": "0xada52840",
-  "status": "Do not flash current build: family mismatch unresolved; application USB re-enumeration after unplug/replug verified",
+  "status": "Baseline source accepts board-specific and generic nRF52840 IDs; dirty binary differences unknown. Application return verified by enumeration; no flash.",
   "local_dump_directory": "firmware/recovery-2026-10-28",
   "exit_check": {
     "checked_at_utc": "2026-10-28T08:17:49.014810+00:00",
@@ -22,5 +22,10 @@
     "vid_pid": "de17:40e1",
     "bootloader_volume_visible": false,
     "typing_verified": false
-  }
+  },
+  "initial_assessment": "Do not flash current build: family mismatch unresolved; application USB re-enumeration after unplug/replug verified",
+  "followup_evidence": [
+    "uf2-preflight-2026-10-28.json",
+    "uf2-preflight-flash-bound-2026-10-28.json"
+  ]
 }

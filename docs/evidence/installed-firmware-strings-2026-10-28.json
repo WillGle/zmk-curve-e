@@ -1,0 +1,32 @@
+{
+  "method": "Offline ASCII search of private CURRENT.UF2; no device writes",
+  "dump_sha256": "7591f3f7cbaea6604c220be42f3c3b219750adbf6c487793b87c60b5e63ae89b",
+  "markers": [
+    {
+      "text": "Zephyr OS v3.5.0",
+      "addresses": [
+        "0x5c63c"
+      ]
+    },
+    {
+      "text": "#DEKB BLE ZMK Firmware 20260426",
+      "addresses": [
+        "0x5e1ed"
+      ]
+    },
+    {
+      "text": "CURVE E BLE",
+      "addresses": [
+        "0x5ebc9",
+        "0x6115e"
+      ]
+    },
+    {
+      "text": "*** Booting Zephyr OS build dacab4875df7 ***",
+      "addresses": [
+        "0x5f234"
+      ]
+    }
+  ],
+  "limit": "Strings identify reported version markers, not exact source commit, PCB revision, or byte-identical rebuild"
+}

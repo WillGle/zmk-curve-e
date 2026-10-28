@@ -1,5 +1,7 @@
 # Curve E Prototype 1 — tài liệu kết nối phần cứng
 
+[Mục lục tài liệu](README.md) · [Nguồn tham khảo](references/README.md)
+
 Tái tạo từ firmware trong repo và nhận diện thiết bị USB ngày 28/10/2026.
 Đây là bước đầu của việc khôi phục sơ đồ nguyên lý đầy đủ; chưa phải bản mạch
 đã xác minh để chế tạo. Tên Prototype 1 và tác giả Deemen17 lấy từ README gốc;
@@ -10,12 +12,12 @@ bo đang cắm USB.
 
 | Nguồn | Nội dung có thể xác nhận |
 | --- | --- |
-| [curve_e_nrf52840_zmk.dts](../../boards/curve_e/curve_e_nrf52840_zmk.dts) | GPIO, ma trận, encoder, LED, cấu hình đo pin và USB |
-| [curve_e.keymap](../../boards/curve_e/curve_e.keymap) | Thứ tự 47 vị trí và chức năng phím theo layer |
-| [curve_e_nrf52840_zmk_defconfig](../../boards/curve_e/curve_e_nrf52840_zmk_defconfig), [Kconfig](../../boards/curve_e/Kconfig), [Kconfig.defconfig](../../boards/curve_e/Kconfig.defconfig) | nRF52840 QIAA, DCDC được yêu cầu, clock 32 kHz dùng RC, USB/BLE |
-| [curve_e.conf](../../config/curve_e.conf) | Encoder, báo pin, sleep và cấu hình Bluetooth |
-| [Bản ghi USB](evidence/usb-2026-10-28.json) | Descriptor thiết bị đang cắm; có thời điểm và commit nguồn |
-| [Ảnh 1: mặt chữ CURVE E](evidence/pcb-front-user.png), [ảnh 2: mặt linh kiện](evidence/pcb-back-user.png) | Người dùng cung cấp ngày 28/10/2026; quan sát hình học, silkscreen và linh kiện nhìn thấy |
+| [curve_e_nrf52840_zmk.dts](../boards/curve_e/curve_e_nrf52840_zmk.dts) | GPIO, ma trận, encoder, LED, cấu hình đo pin và USB |
+| [curve_e.keymap](../boards/curve_e/curve_e.keymap) | Thứ tự 47 vị trí và chức năng phím theo layer |
+| [curve_e_nrf52840_zmk_defconfig](../boards/curve_e/curve_e_nrf52840_zmk_defconfig), [Kconfig](../boards/curve_e/Kconfig), [Kconfig.defconfig](../boards/curve_e/Kconfig.defconfig) | nRF52840 QIAA, DCDC được yêu cầu, clock 32 kHz dùng RC, USB/BLE |
+| [curve_e.conf](../config/curve_e.conf) | Encoder, báo pin, sleep và cấu hình Bluetooth |
+| [Bản ghi USB](../hardware/evidence/usb-2026-10-28.json) | Descriptor thiết bị đang cắm; có thời điểm và commit nguồn |
+| [Ảnh 1: mặt chữ CURVE E](../hardware/evidence/pcb-front-user.png), [ảnh 2: mặt linh kiện](../hardware/evidence/pcb-back-user.png) | Người dùng cung cấp ngày 28/10/2026; quan sát hình học, silkscreen và linh kiện nhìn thấy |
 
 **Firmware khai báo** không đồng nghĩa **đã đo trên PCB**. Chưa đọc firmware/flash
 thiết bị, chưa xác nhận firmware đang chạy trùng repo. GPIO bên dưới là tên cổng
@@ -69,7 +71,7 @@ chắc chắn mã module và chưa đối chiếu pinout module với GPIO của
 | R3 | P0.07 | Hàng 3 |
 | ENC_A | P0.24 | Encoder A, pull-up |
 | ENC_B | P0.13 | Encoder B, pull-up |
-| LED_BLUE | P1.10 | LED khai báo active-high |
+| LED_P1_10 | P1.10 | Config cũ gọi blue, source dev gọi white; chưa đo |
 | VBATT_SENSE | ADC channel 2 | Ngõ đo cầu chia áp; xem giới hạn bên dưới |
 
 Các tên net C/R/ENC trong tài liệu là nhãn phục dựng, không phải nhãn silkscreen
@@ -115,7 +117,8 @@ Nếu có nút nhấn encoder, chưa xác định tọa độ ma trận của n�
 
 Layer mặc định gán `inc_dec_kp C_VOL_DN C_VOL_UP`; layer 1 gán Page Down/Up, layer 2 gán cuộn chuột, layer 3 gán độ sáng. Chưa đo chiều quay thực tế.
 
-LED xanh được khai báo trên P1.10, active-high. Chưa biết điện trở hạn dòng,
+LED P1.10 được config cũ gọi xanh, active-high; source vendor dev gọi trắng
+và khai báo thêm LED xanh P0.03. Màu/chức năng thực tế chưa xác minh. Chưa biết điện trở hạn dòng,
 kiểu đấu trực tiếp/transistor, mã LED, hoặc firmware có thực sự điều khiển LED.
 Khai báo LED không đủ để gán chức năng báo sạc hay Bluetooth.
 
@@ -148,7 +151,7 @@ pin, đầu nối, cực tính, IC sạc hoặc mạch bảo vệ.
 
 Đọc sysfs ngày 28/10/2026, khi người dùng báo dùng cáp USB A–C:
 Bản ghi dưới đây là snapshot trước nâng cấp ZMK, không phải descriptor của
-UF2 mới. Xem [firmware hiện hành](../firmware.md) để biết cấu hình và kiểm chứng mới.
+UF2 mới. Xem [firmware hiện hành](firmware.md) để biết cấu hình và kiểm chứng mới.
 
 | Thuộc tính | Quan sát |
 | --- | --- |
@@ -169,8 +172,9 @@ không phải dòng tiêu thụ đã đo. HID mouse chỉ xác nhận khả năn
 không chứng minh có cảm biến chuột trên bo. Chuỗi “BLE” không phải bằng chứng
 đã thử Bluetooth. Bản ghi gốc có serial định danh thiết bị.
 
-Đã đọc descriptor và thông tin kernel, chưa gửi lệnh serial, reset hoặc nạp
-firmware. `lsusb` thường báo `unable to initialize libusb: -99`; dữ liệu thay
+Snapshot USB này chỉ đọc descriptor/thông tin kernel. Sau đó người dùng đã
+RESET/rút cắm để kiểm tra bootloader; xem [audit khôi phục](recovery.md).
+Chưa gửi lệnh serial hoặc nạp firmware. `lsusb` thường báo `unable to initialize libusb: -99`; dữ liệu thay
 thế được đọc trực tiếp từ sysfs. Chưa kiểm thử từng phím/encoder.
 
 USB đang truyền dữ liệu qua cáp A–C. Chưa thể xác nhận loại connector/footprint,
@@ -203,11 +207,14 @@ không đảo bảng GPIO theo hướng nhìn ảnh. Một số vùng hàng dư�
 chồng/lựa chọn bố trí. Chưa chốt số switch thực lắp hoặc vị trí nút encoder.
 Không đọc mã IC/giá trị điện trở bằng suy đoán từ vệt chữ nhỏ trong ảnh này.
 
-Tra cứu nguồn công khai ngày 28/10/2026: URL `github.com/Deemen17/Curve`
-đọc từ silkscreen trả HTTP 404 qua GitHub API. Danh sách repo công khai có
-`Deemen17/Deemen17_PCB_Collection`; cây `main` không có đường dẫn chứa `curve`
-hoặc file `.sch`, `.kicad_sch`, `.kicad_pcb` tại lần kiểm tra. Chưa tìm thấy
-schematic gốc trong phạm vi tra cứu này; không kết luận thiết kế gốc không tồn tại.
+Khảo sát mở rộng tìm được repo `Deemen17/CruveE` nhưng repo rỗng; có firmware
+Curve ở nhánh dev của `zmk-keyboards-dekb`, chưa tìm thấy CAD/Gerber/BOM trong
+phạm vi đã kiểm tra. Xem [nguồn công khai](references/public-sources.md) và bản sao nguồn
+kèm license/checksum trong `hardware/upstream/`.
+
+- [Trạng thái tự chủ và phần còn thiếu](status.md).
+- [Nhận diện linh kiện, pinout ứng viên và phép đo](../hardware/components-and-measurements.md).
+- [Bootloader, giới hạn backup và khôi phục SWD](recovery.md).
 
 ### Dữ liệu cần bổ sung
 

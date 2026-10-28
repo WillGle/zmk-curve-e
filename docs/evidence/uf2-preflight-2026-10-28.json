@@ -1,0 +1,58 @@
+{
+  "verified_at_utc": "2026-10-28T08:22:12.053357+00:00",
+  "method": "Read-only source review and offline UF2 parsing; no device writes",
+  "base_commit": "8023c1e6a0a8014fce0fa1775a67ca54d4ad7454",
+  "source_match_limit": "Device reports g8023c1e-dirty; local bootloader modifications are unavailable, so this is not binary-exact validation",
+  "accepted_ids_in_base_source": [
+    "0xde1740e1 (board ID derived from observed VID/PID)",
+    "0xada52840 (generic nRF52840 app)"
+  ],
+  "new_uf2_sha256": "179e8b2b7df242e11339ac4fb8e63d5b343d9406ed4ea65e866e5cbd87e9583c",
+  "blocks_passing_baseline_predicates": 930,
+  "softdevice_magic_read_from_dump": "0x51b1e5db",
+  "softdevice_end_read_from_dump": "0x26000",
+  "old_vectors": {
+    "initial_sp": "0x20010938",
+    "reset_handler": "0x31b55"
+  },
+  "new_vectors": {
+    "initial_sp": "0x2000e2c0",
+    "reset_handler": "0x2f8c9"
+  },
+  "source_user_flash_end": "0xea000",
+  "dump_exclusive_end": "0xea000",
+  "new_write_range": [
+    "0x26000",
+    "0x60200"
+  ],
+  "configured_code_partition_end": "0xec000",
+  "finding": "Current artifact fits bootloader write range; configured code capacity extends 0x2000 beyond baseline USER_FLASH_END and should be bounded before future larger builds",
+  "sources": [
+    {
+      "file": "ghostfat.c",
+      "url": "https://github.com/adafruit/Adafruit_nRF52_Bootloader/blob/8023c1e6a0a8014fce0fa1775a67ca54d4ad7454/src/usb/uf2/ghostfat.c",
+      "sha256": "95ce9a045d8004d9413e25ec01e9ec0dfe8d9e36ef92b8a2b5bd01ed564845e7"
+    },
+    {
+      "file": "uf2cfg.h",
+      "url": "https://github.com/adafruit/Adafruit_nRF52_Bootloader/blob/8023c1e6a0a8014fce0fa1775a67ca54d4ad7454/src/usb/uf2/uf2cfg.h",
+      "sha256": "50e77ff464cc79c2232ad02dce3e655d20334158d911bd90a7cb898e231ad45a"
+    },
+    {
+      "file": "dfu_types.h",
+      "url": "https://github.com/adafruit/Adafruit_nRF52_Bootloader/blob/8023c1e6a0a8014fce0fa1775a67ca54d4ad7454/lib/sdk11/components/libraries/bootloader_dfu/dfu_types.h",
+      "sha256": "c235b7895e8fe0076084e464aa56194649efacf67db7c0b4c7fcd17bee7cc730"
+    },
+    {
+      "file": "nrf_sdm.h",
+      "url": "https://github.com/adafruit/Adafruit_nRF52_Bootloader/blob/8023c1e6a0a8014fce0fa1775a67ca54d4ad7454/lib/softdevice/s140_nrf52_6.1.1/s140_nrf52_6.1.1_API/include/nrf_sdm.h",
+      "sha256": "d422fdae7719177b9311bd10a33252e9338f2a60803a0712867f24cefe6895fe"
+    },
+    {
+      "file": "Makefile",
+      "url": "https://github.com/adafruit/Adafruit_nRF52_Bootloader/blob/8023c1e6a0a8014fce0fa1775a67ca54d4ad7454/Makefile",
+      "sha256": "f40c52dbbb9c79d677202bb7ca8a7ad5d51c910ec0febae03ec687cc8ab6a5cd"
+    }
+  ],
+  "conclusion": "Generic family ID is accepted by matching base source; the dump family difference alone is not a compatibility failure. No firmware or bootloader was changed or flashed."
+}
