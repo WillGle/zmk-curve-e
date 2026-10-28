@@ -1,23 +1,31 @@
-# ZMK Config for Curve E PCB Prototype 1
-WIP
-Designed by Deemen17
+# Curve E — PCB Prototype 1
 
-Hardware documentation: [Tài liệu kết nối phần cứng](docs/hardware/README.md)
+Bàn phím Curve E do Deemen17 thiết kế. Repo này phục vụ tự cập nhật và duy trì
+firmware ZMK cho bo hiện có bằng công cụ local, tiếp tục cập nhật khi vendor
+không còn cung cấp bản mới. Không cần sửa PCB để cập nhật firmware ứng dụng.
+Tư liệu phần cứng được giữ riêng để hỗ trợ bảo trì và phục dựng khi cần.
 
-## Firmware hiện hành
+| Bạn cần gì? | Bắt đầu ở đâu? |
+| --- | --- |
+| Sử dụng, nạp firmware, đổi phím hoặc khôi phục | [Hướng dẫn thao tác](guides/README.md) |
+| Hiểu thiết kế, cấu hình và kết quả kiểm chứng | [Tài liệu kỹ thuật](docs/README.md) |
+| Lấy firmware để nạp | [Danh mục firmware](firmware/README.md) |
+| Sửa chữa hoặc triển khai lại phần cứng | [Tư liệu phần cứng](hardware/README.md) |
 
-Board dùng module ZMK và hardware model mới: `curve_e//zmk`.
-ZMK được khóa ở commit `4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85`, là đầu
-nhánh `main` đã tra cứu trong đợt nâng cấp này; dependency Zephyr là
-`v4.1.0+zmk-fixes`. Không dùng số phiên bản tự đặt cho firmware.
+## Trạng thái hiện tại
 
-- [Định nghĩa board](boards/curve_e/board.yml),
-  [devicetree](boards/curve_e/curve_e_nrf52840_zmk.dts),
-  [keymap](boards/curve_e/curve_e.keymap),
-  [cấu hình](config/curve_e.conf), [manifest](config/west.yml).
-- [Firmware đã build và bằng chứng](firmware/README.md).
-- [Tính năng, cách build và kiểm chứng](docs/firmware.md).
-- [Kết nối phần cứng và bằng chứng USB/ảnh](docs/hardware/README.md).
+- Firmware mới đã build và kiểm tra tĩnh; **chưa nạp và kiểm thử trên bo**.
+  [Bản hiện hành và checksum](firmware/README.md) ghi rõ phạm vi tương thích.
+- Đã ghi nhận GPIO từ firmware, ảnh PCB, USB và bootloader. **Chưa có schematic,
+  PCB CAD hoặc BOM đủ để chế tạo.** Xem [phần còn thiếu](docs/status.md).
+- Nguồn dẫn ngoài repo được gom tại [nguồn tham khảo](docs/references/README.md).
 
-![image](https://user-images.githubusercontent.com/95753855/190593464-837a6e1b-c1ad-44f9-ad48-c4972ede8f1d.png)
-![image](https://user-images.githubusercontent.com/95753855/190593507-abe741ab-4c7a-42a5-9975-7ca61e5cc02b.png)
+## Phát triển firmware
+
+Mã nguồn board tại [boards/curve_e/](boards/curve_e/board.yml), cấu hình tại
+[config/](config/curve_e.conf), module tại [zephyr/module.yml](zephyr/module.yml).
+Target `curve_e//zmk`; ZMK khóa commit trong [config/west.yml](config/west.yml).
+Làm theo [hướng dẫn build](guides/build-firmware.md); workspace ở
+`build/curve-e/`, bản bàn giao được lưu riêng trong `firmware/releases/`.
+
+![PCB Curve E Prototype 1](hardware/evidence/pcb-front-user.png)
