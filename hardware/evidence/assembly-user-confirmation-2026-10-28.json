@@ -1,0 +1,9 @@
+{
+  "recorded_at_utc": "2026-10-28T09:26:42.985960+00:00",
+  "source": "User clarification during post-flash verification",
+  "user_statement": "không có encoder, vị trí của encoder là 1 nút, đã hàn nút bấm vào vị trí encoder, vị trí đó là hybrid",
+  "installed_encoder": false,
+  "hybrid_position_populated_with": "push button",
+  "matrix_coordinate": "not yet verified",
+  "limit": "User confirmation identifies installed assembly; no continuity measurement or matrix-coordinate identification inferred"
+}

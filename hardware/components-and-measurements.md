@@ -14,6 +14,14 @@ Không có phép đo điện hoặc đọc flash nào được thực hiện cho
 Ảnh được phóng to để quan sát; việc phóng to không tạo thêm chi tiết chữ.
 Các mức tin cậy dưới đây áp dụng riêng cho bo trong ảnh.
 
+## Xác nhận cấu hình lắp từ người dùng
+
+Người dùng xác nhận bo đang dùng lắp nút bấm tại footprint hybrid, **không có
+encoder**. [Bản ghi](evidence/assembly-user-confirmation-2026-10-28.json).
+Các mô tả encoder từ ảnh/firmware dưới đây là khả năng footprint và khai báo
+phần mềm, không phải danh sách linh kiện thực lắp. Chưa xác minh nút hybrid
+ứng với RnCm nào.
+
 ## Linh kiện nhìn thấy
 
 | Khu vực / bằng chứng | Nhận diện | Mức xác nhận và phần còn thiếu |

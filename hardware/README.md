@@ -14,6 +14,13 @@ Tư liệu hiện có phục vụ nhận diện, sửa chữa và tiếp tục p
 | Nhận diện linh kiện, pinout ứng viên, bảng phép đo | [components-and-measurements.md](components-and-measurements.md) |
 | Nguồn tham khảo gốc, thư viện và bootloader nền | [upstream/](upstream/README.md), kèm manifest và license khi có |
 
+## Cấu hình lắp thực tế
+
+Người dùng xác nhận vị trí hybrid đang lắp **nút bấm, không có encoder**.
+[Bản ghi xác nhận](evidence/assembly-user-confirmation-2026-10-28.json).
+Khai báo EC11 trong firmware mô tả khả năng của footprint; không chứng minh
+encoder hiện diện. Chưa xác minh tọa độ ma trận của nút hybrid.
+
 ## Tiếp tục phục dựng
 
 1. Đối chiếu đúng bo/revision với ảnh; đọc mã module và linh kiện nguồn.
