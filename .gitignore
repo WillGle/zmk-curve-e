@@ -1,12 +1,17 @@
 # ZMK build artifacts
 build/
 .west/
-zephyr/
+/zephyr/*
+!/zephyr/module.yml
 modules/
 *.uf2
 *.bin
 *.hex
 *.log
+
+# Keep released firmware and its build evidence in the repository.
+!/firmware/**/*.uf2
+!/firmware/**/*.log
 
 # Backups
 backup/

@@ -3,24 +3,15 @@
 
 if BOARD_CURVE_E
 
-config BOARD
-	default "Curve E"
-
 config ZMK_KEYBOARD_NAME
 	default "Curve E"
 	
-if USB
+if USB_DEVICE_STACK
 
 config USB_NRFX
 	default y
 
-config USB_DEVICE_STACK
-	default y
-
-endif # USB
-
-config BT_CTLR
-	default BT
+endif # USB_DEVICE_STACK
 
 config ZMK_BLE
 	default y

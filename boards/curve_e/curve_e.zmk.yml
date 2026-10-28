@@ -1,13 +1,14 @@
 file_format: "1"
-id: curve_e
+id: curve_e//zmk
 name: Curve E Board
 type: board
 arch: arm
 features:
   - keys
-  - display
-  - underglow
+  - encoder
+  - studio
+  - pointer
 outputs:
   - usb
   - ble
-url: none
+url: https://github.com/WillGle/zmk-config-curve_e
