@@ -5,7 +5,7 @@ và công cụ tại local**, tiếp tục duy trì ZMK khi vendor không còn c
 cập nhật. Không cần sửa mạch, dựng lại PCB hoặc hoàn thiện BOM để thực hiện
 luồng cập nhật ứng dụng này.
 
-Bản đang cài là `2026-10-28-zmk-4dd95d7-ble-compat`: tắt passkey và experimental
+Bản đang cài là `2026-10-28-zmk-4dd95d7-ble-compat-curved`: tắt passkey và experimental
 BLE, PHY 2M tắt rõ ràng; xem [cấu hình BLE](bluetooth.md).
 Đã có nguồn board/keymap, bản build và checksum trong repo. Đã build lại
 offline, nạp ứng dụng và xác nhận USB/Studio trên thiết bị. Studio trả đúng

@@ -24,7 +24,7 @@ trận của nó; chưa xác minh tọa độ thực tế, không tự đổi bi
 | Combo layer 0 | Q+W → ESC; A+S → TAB; O+P → BSPC; K+L → ENTER; V+B → Caps Word; Z+X → đổi USB/BLE |
 | USB | HID keyboard/mouse, Boot Protocol và Studio RPC qua snippet `studio-rpc-usb-uart` |
 | Rollover | NKRO ở report mode; USB Boot Protocol dùng báo cáo 6 phím theo yêu cầu host |
-| Studio | 47 vị trí trên lưới logic, đúng thứ tự transform; hình hiển thị chưa mô phỏng đường cong PCB |
+| Studio | Layout cong Curve E 47 vị trí từ nguồn tác giả; giữ đúng thứ tự transform |
 | Bluetooth | 5 profile; công suất yêu cầu +8 dBm; interval yêu cầu 7.5–15 ms, peripheral latency 0 |
 | Nguồn | Idle 30 giây; yêu cầu sleep sau 30 phút; bật báo pin BLE |
 
@@ -52,7 +52,7 @@ Studio không thay thế việc build khi cần đổi GPIO, cấu hình radio h
 
 Nếu cập nhật HID descriptor để có chức năng chuột, cần xóa pairing ở cả host
 và profile bàn phím rồi ghép đôi lại để host đọc descriptor mới. BT_CLR tác
-động profile đang chọn. Bản `ble-compat` đang cài đã tắt experimental BLE và nhập passkey; giữ PHY 2M
+động profile đang chọn. Bản `ble-compat-curved` đang cài đã tắt experimental BLE và nhập passkey; giữ PHY 2M
 tắt rõ ràng. Xem [cấu hình BLE hiện hành](../docs/bluetooth.md); chưa có kết quả
 thử ổn định dài hạn trên host.
 
@@ -69,3 +69,22 @@ giữ thứ tự 47 vị trí theo transform; cấu hình tính năng nằm ở
 lưu artifact ở thư mục phiên bản mới rồi [kiểm tra trước khi nạp](../docs/verification.md#kiểm-tra-trước-khi-nạp).
 Settings Studio có thể ghi đè keymap biên dịch; sao lưu cấu hình Studio trước
 khi cân nhắc xóa settings.
+
+## Layout hiển thị trong Studio
+
+Bản hiện hành dùng `Curve E (47 keys, curved)`, thay cho lưới chữ nhật cũ.
+[Xem trước](../docs/assets/curve-e-studio-layout.svg) dùng binding mặc định trong
+nguồn; label thực tế trong Studio theo keymap bạn đã lưu.
+
+Hình học lấy từ `LEFT SPACE 1U` của source tác giả tại commit `66f10de`, MIT;
+47 vị trí và thứ tự RnCm trùng transform hiện hành. Không thêm layout 2U vì
+biến thể đó có 46 vị trí, sẽ cần xử lý mapping riêng. Nút hybrid vẫn là phím.
+Đây là hình học để chỉnh phím, không phải bản CAD kích thước chế tạo.
+
+Sau nạp, tải lại Studio rồi kết nối lại. Số cổng CDC có thể đổi; lần kiểm tra
+layout mới Studio là `ttyACM2`, không mặc định luôn `ttyACM1`. Nếu chỉ dùng ACL
+tạm, quyền của node cũ không tự chuyển sang node mới; nhóm `dialout` phù hợp
+cho truy cập serial lâu dài. Đóng kết nối ở ứng dụng khác trước khi mở Studio.
+
+Layout không làm thay đổi binding của tap-dance hoặc momentary layer;
+Studio có thể chưa hiển thị nhãn rõ cho các behavior này.

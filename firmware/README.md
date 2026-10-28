@@ -6,7 +6,8 @@
 
 | Bản | Trạng thái |
 | --- | --- |
-| [2026-10-28-zmk-4dd95d7-ble-compat](releases/2026-10-28-zmk-4dd95d7-ble-compat/) | **Bản hiện hành đã cài**: passkey tắt, BLE ưu tiên tương thích; USB/Studio đạt, chờ thử BLE |
+| [2026-10-28-zmk-4dd95d7-ble-compat-curved](releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/) | **Bản hiện hành đã cài**: layout cong 47 phím, giữ BLE/passkey-off; Studio xác nhận đủ tọa độ |
+| [2026-10-28-zmk-4dd95d7-ble-compat](releases/2026-10-28-zmk-4dd95d7-ble-compat/) | Bản BLE trước thay layout; đã nạp và readback 928 block khớp archive |
 | [2026-10-28-zmk-4dd95d7-flash-bound](releases/2026-10-28-zmk-4dd95d7-flash-bound/) | Bản trước: đã nạp và readback 930 block khớp archive; giữ để đối chiếu lịch sử |
 | [2026-10-28-zmk-4dd95d7](releases/2026-10-28-zmk-4dd95d7/) | Archive lịch sử trước sửa capacity 8 KiB; dùng bản flash-bound cho bước đánh giá tiếp theo |
 
@@ -16,9 +17,9 @@ Mã bootloader nền được thiết bị báo cáo nhận cả family `0xDE174
 `0xADA52840`; phần sửa riêng `dirty` chưa có để đối chiếu binary-exact.
 Thông tin này chưa bảo đảm tương thích mọi revision Curve E.
 
-- [File zmk.uf2](releases/2026-10-28-zmk-4dd95d7-ble-compat/zmk.uf2).
-- [Manifest nguồn và cấu hình build](releases/2026-10-28-zmk-4dd95d7-ble-compat/build.json).
-- [SHA256SUMS](releases/2026-10-28-zmk-4dd95d7-ble-compat/SHA256SUMS).
+- [File zmk.uf2](releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/zmk.uf2).
+- [Manifest nguồn và cấu hình build](releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/build.json).
+- [SHA256SUMS](releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/SHA256SUMS).
 - [Kết quả kiểm chứng và giới hạn](../docs/verification.md).
 - [Trạng thái board và checklist nâng cấp local](../docs/update-checklist.md).
 
@@ -31,6 +32,9 @@ Manifest build trong release giữ trạng thái tại lúc build; kết quả s
 
 Bản BLE mới: [cấu hình và kiểm chứng](../docs/bluetooth.md),
 [Studio sau nạp](../docs/evidence/ble-compat-post-flash-studio-2026-10-28.json).
+
+Layout hiện hành: [xem trước](../docs/assets/curve-e-studio-layout.svg),
+[tọa độ đọc lại từ Studio](../docs/evidence/curved-layout-post-flash-studio-2026-10-28.json).
 
 Tại thư mục bản đã chọn, chạy `sha256sum -c SHA256SUMS` trước khi dùng.
 Đọc [cách cài](../guides/install-firmware.md) và

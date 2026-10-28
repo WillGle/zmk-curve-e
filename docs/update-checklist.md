@@ -1,6 +1,6 @@
 # Trạng thái và việc cần làm để cập nhật firmware local
 
-Cập nhật sau nạp ngày 28/10/2026, khoảng 09:46 UTC (16:46 giờ Việt Nam).
+Cập nhật sau nạp ngày 28/10/2026, khoảng 09:56 UTC (16:56 giờ Việt Nam).
 [Tài liệu](README.md) · [Cách cài](../guides/install-firmware.md)
 
 ## Kết luận
@@ -13,14 +13,14 @@ hoặc có schematic/BOM cho luồng nâng cấp ứng dụng này.
 | Hạng mục | Trạng thái hiện hành |
 | --- | --- |
 | Board đang cắm | Ứng dụng mới `ZMK Project / Curve E`, `1D50:615E`; HID keyboard/mouse, hai cổng CDC |
-| Firmware hiện hành | [ble-compat](../firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat/zmk.uf2), SHA-256 `d880cee41ef409b0690c8ac80a736abda7fd4c09b9d0df68684756389ac97e6b` |
+| Firmware hiện hành | [ble-compat-curved](../firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/zmk.uf2), SHA-256 `2e3901f0fab72e30561233fbdc229dc598c1798997a723ef01de9694e39093ef` |
 | Nguồn cập nhật | ZMK `4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85`; trùng `main` tại lần tra API trong audit |
 | Build offline | Build `--network none` mới đạt; bản flash-bound trước có kiểm chứng byte-identical riêng |
 | Môi trường local | Image pinned digest và 56 project có HEAD khớp frozen manifest đã được kiểm tra; source snapshot khớp repo |
 | Preflight | 928 block UF2 mới, range `[0x26000,0x60000)`, vector/cấu hình/hash đạt; không ghi vùng bootloader/SoftDevice |
 | Backup trước nạp | CURRENT/INFO mới giữ riêng ngoài Git; readback 930 block app cũ khớp archive. Thiếu MBR/bootloader/UICR; chưa thử rollback |
 | Phiên nạp | Bản BLE mới ghi đủ 475136 byte; EIO ở bước đồng bộ khi bootloader ngắt. Sau đó USB mới và Studio RPC đáp ứng, không tự retry |
-| Studio | `ttyACM1`, unlocked; đọc được 4 layer × 47 bindings và layout 47 vị trí |
+| Studio | `ttyACM2` tại lần kiểm tra mới; unlocked, 4 layer × 47 bindings và 47 tọa độ layout cong khớp source |
 | Quyền cổng serial | Thấy ngoài sandbox; user host thiếu dialout. Đã đọc Studio qua container tạm cấp đúng device/group, không đổi quyền host lâu dài |
 | Chưa kiểm chứng | Phím/nút hybrid, save/reload keymap, BLE, pin và sleep/wake; rollback/SWD |
 
@@ -75,6 +75,10 @@ Chưa chốt tín hiệu riêng nút hybrid; không còn xem đây là lỗi gõ
   flash/UICR nếu có quyền đọc; chưa có bằng chứng này, không chạy recover để thử.
 
 ## Bằng chứng
+
+- [Preflight layout cong](evidence/curved-layout-preflight-2026-10-28.json).
+- [Backup/readback/nạp layout](evidence/curved-layout-flash-session-2026-10-28.json).
+- [Studio: 47 tọa độ khớp source](evidence/curved-layout-post-flash-studio-2026-10-28.json).
 
 - [Preflight BLE mới](evidence/ble-compat-preflight-2026-10-28.json).
 - [Backup/nạp BLE mới](evidence/ble-compat-flash-session-2026-10-28.json).

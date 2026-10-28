@@ -21,7 +21,7 @@ Tư liệu phần cứng được giữ riêng để hỗ trợ bảo trì và p
   PCB CAD hoặc BOM đủ để chế tạo.** Xem [phần còn thiếu](docs/status.md).
 - Nguồn dẫn ngoài repo được gom tại [nguồn tham khảo](docs/references/README.md).
 
-Bản đang cài: `2026-10-28-zmk-4dd95d7-ble-compat` — bỏ nhập passkey,
+Bản đang cài: `2026-10-28-zmk-4dd95d7-ble-compat-curved` — bỏ nhập passkey,
 BLE ưu tiên tương thích; [chi tiết và phần còn cần thử](docs/bluetooth.md).
 
 ## Phát triển firmware

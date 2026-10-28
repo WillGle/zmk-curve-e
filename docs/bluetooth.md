@@ -4,9 +4,11 @@
 [Hướng dẫn phím/kết nối](../guides/configure-keymap.md)
 
 Bản đang cài từ 28/10/2026:
-`2026-10-28-zmk-4dd95d7-ble-compat`. Đã build offline, preflight và nạp;
+`2026-10-28-zmk-4dd95d7-ble-compat-curved`. Đã build offline, preflight và nạp;
 USB/Studio RPC hoạt động sau reboot. **Chưa đo độ ổn định BLE trên host.**
-Các thay đổi dưới đây là cấu hình ưu tiên tương thích, không phải kết quả đo
+Bản curved chỉ bổ sung hình học Studio; effective config BLE giống hệt
+bản ble-compat trước. [Bằng chứng layout](evidence/curved-layout-preflight-2026-10-28.json).
+Các thay đổi BLE dưới đây là cấu hình ưu tiên tương thích, không phải kết quả đo
 độ trễ, tỷ lệ mất phím, mức pin hay độ ổn định dài hạn.
 
 ## Kiểm tra và thay đổi
