@@ -1,5 +1,13 @@
 # Curve E — kết quả kiểm chứng
 
+## Prototype ESB cách ly — 28/10/2026
+
+Receiver DK và keyboard USB+ESB build đạt, 97 assertion tạm với sanitizer đạt
+(transport giả lập hardware/queue). Baseline USB/BLE build byte-identical
+release đang dùng; không sửa BLE hoặc nạp thiết bị. Chưa thử radio, chưa nghiệm
+thu ba mode hoặc độ ổn định BLE. [Bằng chứng](evidence/esb-prototype-2026-10-28.json)
+và [artifact thử nghiệm](../firmware/experimental/README.md).
+
 [Tài liệu kỹ thuật](README.md) · [Firmware để tải](../firmware/README.md)
 
 ## Layout Studio hiện hành — 28/10/2026

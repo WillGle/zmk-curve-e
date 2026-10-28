@@ -6,6 +6,8 @@ Dữ liệu gốc được giữ nguyên khi gom thư mục. Các kết luận c
 
 | File | Phạm vi |
 | --- | --- |
+| [esb-prototype-2026-10-28.json](esb-prototype-2026-10-28.json) | Ba build đạt, baseline BLE byte-identical, 97 assertion tạm; chưa flash/radio |
+| [esb-source-audit-2026-10-28.json](esb-source-audit-2026-10-28.json) | 18 file nguồn/giấy phép đã kiểm hash, 3 probe tĩnh; chưa build/radio |
 | [curved-layout-preflight-2026-10-28.json](curved-layout-preflight-2026-10-28.json) | Chỉ thay hình học 47 phím, config/keymap/transform giữ nguyên |
 | [curved-layout-flash-session-2026-10-28.json](curved-layout-flash-session-2026-10-28.json) | Backup và readback 928 block BLE cũ khớp, nạp layout mới |
 | [curved-layout-post-flash-studio-2026-10-28.json](curved-layout-post-flash-studio-2026-10-28.json) | 47 bộ tọa độ Studio khớp source, cổng mới ttyACM2 |

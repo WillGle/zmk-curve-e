@@ -1,5 +1,9 @@
 # Trạng thái và việc cần làm để cập nhật firmware local
 
+**ESB thử nghiệm được cách ly:** đã build cặp USB+ESB cho Curve E/nRF52840 DK,
+chưa nạp. BLE chính không đổi binary. Không chọn bản thử thay firmware BLE
+đang dùng khi chưa có receiver và kế hoạch kiểm thử; xem [trạng thái ESB](esb-development.md).
+
 Cập nhật sau nạp ngày 28/10/2026, khoảng 09:56 UTC (16:56 giờ Việt Nam).
 [Tài liệu](README.md) · [Cách cài](../guides/install-firmware.md)
 

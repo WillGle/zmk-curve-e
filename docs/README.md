@@ -5,6 +5,9 @@
 | Tài liệu | Nội dung |
 | --- | --- |
 | [Trạng thái board và việc cần làm](update-checklist.md) | Kiểm tra local mới nhất, mức sẵn sàng nâng cấp và checklist nạp/thử |
+| [Kế hoạch triển khai ESB](esb-implementation-plan.md) | Các bước phần mềm đã làm và phần kiểm thử phần cứng còn lại |
+| [Phát triển ESB độc lập](esb-development.md) | Prototype cách ly BLE, audit fork, receiver DK và bước thử phần cứng |
+| [Các chế độ kết nối](connection-modes.md) | USB/BLE, dongle BLE chính thức và ESB trong fork vendor |
 | [BLE ưu tiên tương thích](bluetooth.md) | Cấu hình không nhập passkey, đối chiếu upstream, bằng chứng và bài thử BLE còn thiếu |
 | [Firmware](firmware.md) | Phiên bản ZMK, cấu trúc module và giới hạn tính năng PCB |
 | [Phần cứng](hardware.md) | GPIO, ma trận, encoder, cầu chia áp và USB từ firmware/khảo sát |

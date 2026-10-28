@@ -1,0 +1,46 @@
+{
+  "date": "2026-10-28",
+  "scope": "Isolated USB+ESB prototype compile and stubbed host probes; no device access, flash or radio test",
+  "design_approved": true,
+  "ble_constraint": "Production BLE is the default wireless; no BLE lifecycle patch; experimental Kconfig excludes BLE",
+  "build_id": "20261028T102818Z",
+  "build_manifests": {
+    "receiver": "../../firmware/experimental/builds/20261028T102818Z/receiver/build.json",
+    "keyboard": "../../firmware/experimental/builds/20261028T102818Z/keyboard/build.json",
+    "baseline": "../../firmware/experimental/builds/20261028T102818Z/baseline/build.json"
+  },
+  "dependencies_verified": 56,
+  "host_probes": {
+    "sanitizers": [
+      "AddressSanitizer",
+      "UndefinedBehaviorSanitizer"
+    ],
+    "protocol_session_assertions": 63,
+    "keyboard_transport_assertions": 26,
+    "receiver_transport_assertions": 8,
+    "transport_environment": "stubbed hardware, workqueue and USB; not a real-time or radio simulation"
+  },
+  "baseline_uf2_sha256": "2e3901f0fab72e30561233fbdc229dc598c1798997a723ef01de9694e39093ef",
+  "baseline_byte_identical_to_current_release": true,
+  "device_firmware_changed": false,
+  "implemented_review_fixes": [
+    "Authenticated STATUS drives reconnect; radio ACK does not refresh session",
+    "Experimental endpoint settings use a separate namespace",
+    "Latest-state mailbox survives bounded report queue overflow",
+    "Clean upstream archive plus 56 clean dependency checks",
+    "Watchdog and ESB callbacks share queue; watchdog/ACK buffer IRQ protection"
+  ],
+  "review_boundary": "Independent static review before fixes; fixes self-verified by code probes and final builds; no second independent review",
+  "remaining": [
+    "No receiver hardware available or radio tests performed",
+    "No integrated USB/BLE/ESB live switching",
+    "BLE stability/pairing/reconnect remains unmeasured; binary preservation is not runtime stability evidence",
+    "Prototype Studio and sleep disabled; no battery/latency claims",
+    "No full cryptographic audit; authenticated HELLO replay DoS not prevented"
+  ],
+  "upstream_warnings": [
+    "Deprecated KSCAN",
+    "SETTINGS_NVS choice is inactive with prototype settings disabled",
+    "Tap-dance discards const qualifier (keyboard/upstream)"
+  ]
+}

@@ -1,5 +1,10 @@
 # Curve E — trạng thái tự chủ, 28/10/2026
 
+ESB hiện là [prototype USB+ESB riêng](esb-development.md), đã build keyboard/receiver
+DK; chưa nạp hoặc thử radio. BLE vẫn là wireless mặc định của firmware chính.
+Build hồi quy UF2 trùng từng byte bản hiện hành; chưa chứng minh độ ổn định BLE
+thực tế. [Bằng chứng](evidence/esb-prototype-2026-10-28.json).
+
 Mục tiêu hiện hành là **tự cập nhật firmware cho bo đang hoạt động bằng nguồn
 và công cụ tại local**, tiếp tục duy trì ZMK khi vendor không còn cung cấp
 cập nhật. Không cần sửa mạch, dựng lại PCB hoặc hoàn thiện BOM để thực hiện
