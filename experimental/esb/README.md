@@ -59,7 +59,7 @@ trước khi thử trên board chính; build pass không phải radio pass.
 
 Driver ESB/header có nguồn Team PHDesign, commit
 `aba1104a9777d851df1c3ea032468d44c42ed3f0`, giữ MIT notice và [LICENSE](LICENSE).
-Nguồn nguyên bản/checksum ở [snapshot](../../hardware/upstream/ph-design-zmk-aba1104-esb/source.json).
+Nguồn nguyên bản/checksum ở [snapshot](../../archive/upstream/ph-design-zmk-aba1104-esb/source.json).
 Bản port tách queue, bảo vệ watchdog/ACK buffer, dùng IRQ động Zephyr khi BLE
 bị cấm; không giữ thủ thuật thay VTOR của fork. Patch giữ enum upstream
 NONE=0, USB=1, BLE=2 và thêm ESB=3 dưới Kconfig thử nghiệm.

@@ -9,7 +9,10 @@ import shutil
 import struct
 import sys
 
-root = pathlib.Path('/repo')
+root = pathlib.Path(__file__).resolve().parents[2]
+sys.path.insert(0, str(root / 'tools'))
+from product import load_product, revision
+product = load_product()
 work = pathlib.Path('/work/esb-work')
 role = sys.argv[1]
 assert role in ('receiver', 'keyboard', 'baseline')
@@ -42,13 +45,14 @@ for source, name in [(work / f'{role}.log', 'build.log'),
     shutil.copyfile(source, public / name)
 
 sources = [p for p in (root / 'experimental/esb').rglob('*') if p.is_file()]
-sources += [root / 'tools/build-esb.sh', root / 'zephyr/module.yml']
+sources += [root / 'product.json', root / 'zephyr/module.yml']
+sources += list((root / 'tools').glob('*.py')) + list((root / 'tools').glob('*.sh'))
 sources += [p for directory in ('boards/curve_e', 'config') for p in (root / directory).rglob('*') if p.is_file()]
 source_records = {str(p.relative_to(root)): digest(p) for p in sorted(sources)}
 (public / 'source-checksums.json').write_text(json.dumps(source_records, indent=2) + '\n')
 config = (public / 'effective.config').read_text()
 if role == 'baseline':
-    reference = root / 'firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/zmk.uf2'
+    reference = root / product['firmware']['current'] / 'zmk.uf2'
     identical = digest(private / 'zmk.uf2') == digest(reference)
     assert identical, 'Baseline USB/BLE changed; do not claim the experiment preserves it'
     assert 'CONFIG_ZMK_BLE=y' in config and '# CONFIG_CURVE_ESB' not in config
@@ -73,10 +77,10 @@ if role == 'keyboard':
                 'end_exclusive': hex(max(b for _, b in ranges)), 'app_bounds_pass': True}
 manifest = {'created_utc': datetime.datetime.now(datetime.timezone.utc).isoformat(),
             'role': role, 'status': 'compile-only; not flashed or radio-tested',
-            'zmk': '4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85',
-            'zephyr': '10ba6d0cb38bc3d258775d27982f707599320085',
-            'image': 'zmkfirmware/zmk-build-arm@sha256:edb1c953438c6f720ddb79c3762f3972013b7fbbaf4fff3592fc869983e7afc5',
-            'target': 'nrf52840dk/nrf52840/zmk' if role == 'receiver' else 'curve_e//zmk',
+            'zmk': revision('zmk'),
+            'zephyr': revision('zephyr'),
+            'image': product['build']['image'],
+            'target': product['experimental']['esb']['receiver_board'] if role == 'receiver' else product['board'],
             'private_artifacts': binary_records, 'uf2': uf2_info,
             'baseline_byte_identical': identical}
 (public / 'build.json').write_text(json.dumps(manifest, indent=2) + '\n')
