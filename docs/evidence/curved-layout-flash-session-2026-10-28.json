@@ -1,0 +1,20 @@
+{
+  "checked_at_utc": "2026-10-28T09:55:11.076487+00:00",
+  "volume": "/run/media/will/CURVE-E",
+  "mount_rw": true,
+  "info": "UF2 Bootloader 0.10.0-10-g8023c1e-dirty\nModel: CURVE E\nBoard-ID: dekb-curves-e\nDate: Jul 13 2026\nSoftDevice: S140 6.1.1\n",
+  "backup_directory": "firmware/recovery-2026-10-28/pre-curved-20261028T095511Z",
+  "backup_sha256": "ee90f3f12de1fa12c3a1c9f4f6acec45adcade31c6242fcb80a54fb86d7ebbe5",
+  "previous_release": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat/zmk.uf2",
+  "previous_app_blocks_readback_match": 928,
+  "release": "firmware/releases/2026-10-28-zmk-4dd95d7-ble-compat-curved/zmk.uf2",
+  "sha256": "2e3901f0fab72e30561233fbdc229dc598c1798997a723ef01de9694e39093ef",
+  "status": "Curved-layout application USB returned; Studio geometry pending",
+  "flashed": true,
+  "flash_started_at_utc": "2026-10-28T09:55:26.813233+00:00",
+  "copy_completed": false,
+  "copy_error": "[Errno 5] Input/output error",
+  "bytes_written": 475136,
+  "copy_finished_at_utc": "2026-10-28T09:55:31.883842+00:00",
+  "application_usb_returned": true
+}
