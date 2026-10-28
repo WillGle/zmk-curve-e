@@ -14,6 +14,10 @@ và giới hạn của tài liệu gốc. Xem [mục lục nguồn](README.md).
 - [Sensor rotation](https://zmk.dev/docs/keymaps/behaviors/sensor-rotate)
 - [Mouse emulation](https://zmk.dev/docs/keymaps/behaviors/mouse-emulation)
 - [Bluetooth](https://zmk.dev/docs/config/bluetooth)
+- [Khắc phục kết nối BLE](https://zmk.dev/docs/troubleshooting/connection-issues): PHY 2M, công suất phát, profile/output và policy passkey.
+  Đối chiếu cả source/docs tại ZMK commit `4dd95d7840eb3d5a3f59bb29fbf1ab054715ef85`
+  (`docs/docs/config/bluetooth.md`, `docs/docs/troubleshooting/connection-issues.mdx`,
+  `app/Kconfig`); không suy ra ổn định thực tế chỉ từ các khuyến nghị này.
 - [Nguồn](https://zmk.dev/docs/features/low-power-states)
 
 ### Công cụ Studio

@@ -14,11 +14,15 @@ Tư liệu phần cứng được giữ riêng để hỗ trợ bảo trì và p
 
 ## Trạng thái hiện tại
 
-- Firmware mới đã build và kiểm tra tĩnh; **chưa nạp và kiểm thử trên bo**.
+- Firmware mới đã build offline, nạp và xác nhận USB/Studio; **còn chờ thử
+  phím/nút hybrid, BLE và sleep/wake**.
   [Bản hiện hành và checksum](firmware/README.md) ghi rõ phạm vi tương thích.
 - Đã ghi nhận GPIO từ firmware, ảnh PCB, USB và bootloader. **Chưa có schematic,
   PCB CAD hoặc BOM đủ để chế tạo.** Xem [phần còn thiếu](docs/status.md).
 - Nguồn dẫn ngoài repo được gom tại [nguồn tham khảo](docs/references/README.md).
+
+Bản đang cài: `2026-10-28-zmk-4dd95d7-ble-compat` — bỏ nhập passkey,
+BLE ưu tiên tương thích; [chi tiết và phần còn cần thử](docs/bluetooth.md).
 
 ## Phát triển firmware
 

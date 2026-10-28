@@ -11,4 +11,5 @@
 | Biên dịch firmware từ nguồn | [Tự build](build-firmware.md) |
 
 Các hướng dẫn phân biệt firmware vendor đang cài với firmware mới trong repo.
-Bản mới đã qua build/kiểm tra tĩnh, chưa xác nhận hoạt động trên bo thật.
+Bản mới đã nạp và xác nhận USB/Studio; phím/nút hybrid, BLE và sleep/wake
+còn chờ kiểm tra thao tác thực tế.

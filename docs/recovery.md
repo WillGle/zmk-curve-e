@@ -66,3 +66,11 @@ range `[0x26000,0x60200)`, vector và hash nguồn. Finding capacity của archi
 cũ đã xử lý trong source/artifact mới; các giới hạn backup/SWD/dirty vẫn còn.
 Nguồn nền được giữ tại [upstream](../hardware/upstream/README.md); hash một số
 file fork khác upstream cùng commit ID, nên manifest nguồn giữ riêng từng bản.
+
+## Phiên nạp ứng dụng sau audit
+
+Đã sao lưu CURRENT/INFO mới và nạp UF2 ứng dụng hiện hành qua bootloader
+ngày 28/10/2026; USB mới và Studio RPC hoạt động.
+[Xem bằng chứng nạp](evidence/flash-session-2026-10-28.json). Không thay
+bootloader/SoftDevice hoặc thử rollback/SWD. Các giới hạn backup và phục hồi
+trong audit trên vẫn còn.

@@ -108,6 +108,12 @@ Các tọa độ bỏ qua: `(1,11)`, `(3,1)`, `(3,6)`, `(3,10)`, `(3,11)`.
 
 ## Encoder và LED
 
+**Cấu hình lắp thực tế:** người dùng xác nhận footprint hybrid đang lắp nút
+bấm, không có encoder. [Xác nhận](../hardware/evidence/assembly-user-confirmation-2026-10-28.json).
+Các GPIO/tỷ lệ EC11 bên dưới là khai báo nguồn, không phải linh kiện hiện diện.
+Chưa xác minh tọa độ ma trận của nút hybrid bằng thao tác đo.
+
+
 Encoder dùng binding `alps,ec11`, A=P0.24, B=P0.13, hai ngõ có pull-up;
 `steps = 4`, `triggers-per-rotation = 1` (tỷ lệ chuẩn hóa 4:1, giữ nguyên
 hành vi `resolution = 4` cũ; chưa đo số xung/nấc mỗi vòng). Kết nối tiếp điểm chung xuống GND là cách đấu phù hợp với
@@ -174,7 +180,8 @@ không chứng minh có cảm biến chuột trên bo. Chuỗi “BLE” không 
 
 Snapshot USB này chỉ đọc descriptor/thông tin kernel. Sau đó người dùng đã
 RESET/rút cắm để kiểm tra bootloader; xem [audit khôi phục](recovery.md).
-Chưa gửi lệnh serial hoặc nạp firmware. `lsusb` thường báo `unable to initialize libusb: -99`; dữ liệu thay
+Tại mốc snapshot USB cũ chưa gửi lệnh serial hoặc nạp firmware; lần nạp và
+đọc Studio sau đó được ghi tại [kiểm chứng](verification.md). `lsusb` thường báo `unable to initialize libusb: -99`; dữ liệu thay
 thế được đọc trực tiếp từ sysfs. Chưa kiểm thử từng phím/encoder.
 
 USB đang truyền dữ liệu qua cáp A–C. Chưa thể xác nhận loại connector/footprint,

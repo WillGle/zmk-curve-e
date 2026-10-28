@@ -5,10 +5,12 @@ và công cụ tại local**, tiếp tục duy trì ZMK khi vendor không còn c
 cập nhật. Không cần sửa mạch, dựng lại PCB hoặc hoàn thiện BOM để thực hiện
 luồng cập nhật ứng dụng này.
 
-Đã có nguồn board/keymap, bản build và checksum trong repo. Bước còn lại là
-nạp ứng dụng qua bootloader rồi kiểm tra thực tế phím, encoder, USB, Studio,
-BLE và sleep/wake. Firmware mới chưa được nạp; build đạt không thay thế kiểm
-chứng trên thiết bị.
+Bản đang cài là `2026-10-28-zmk-4dd95d7-ble-compat`: tắt passkey và experimental
+BLE, PHY 2M tắt rõ ràng; xem [cấu hình BLE](bluetooth.md).
+Đã có nguồn board/keymap, bản build và checksum trong repo. Đã build lại
+offline, nạp ứng dụng và xác nhận USB/Studio trên thiết bị. Studio trả đúng
+4 layer × 47 phím và layout 47 vị trí. Còn cần thử thực tế phím/nút hybrid, BLE
+và sleep/wake; xem [checklist hiện hành](update-checklist.md).
 
 Khảo sát schematic/PCB/BOM là tư liệu bảo trì riêng. Việc thiếu các file đó
 không chặn cập nhật firmware hiện hành. Backup đầy đủ flash/UICR và nguồn
@@ -17,10 +19,10 @@ không phải yêu cầu thay mạch cho mỗi lần cập nhật ứng dụng.
 
 | Khả năng | Bằng chứng hiện có | Giới hạn |
 | --- | --- | --- |
-| Tự duy trì firmware | [Board và build](firmware.md); ZMK/Zephyr commit đã ghi; artifact mới trong repo | Build đạt, chưa nạp/thử runtime |
+| Tự duy trì firmware | [Board và build](firmware.md); ZMK/Zephyr commit đã ghi; artifact mới trong repo | Build offline byte-identical; đã nạp, USB/Studio đạt; còn thử chức năng thực tế |
 | Giữ nguồn vendor công khai | [Manifest snapshot](../hardware/upstream/sources.json), archive MIT kèm LICENSE | Nhánh dev không phải firmware đã chứng minh chạy trên bo |
 | Xác định firmware đang cài | [Chuỗi trong dump](evidence/installed-firmware-strings-2026-10-28.json): Zephyr 3.5.0, DEKB 20260426, build dacab4875df7 | Chưa truy ra nguồn chính xác; marker dùng chung nhiều board |
-| Nạp app qua bootloader | Đã vào bootloader vật lý và trở về app cũ; [UF2 mới qua kiểm tra tĩnh](evidence/uf2-preflight-flash-bound-2026-10-28.json) | Chưa thử nạp; source nền nhận generic family, bản `dirty` chưa đối chiếu binary |
+| Nạp app qua bootloader | [Phiên nạp thực tế](evidence/flash-session-2026-10-28.json), USB và Studio mới hoạt động | Chưa thử rollback; bản bootloader `dirty` chưa đối chiếu binary |
 | Sao lưu firmware cũ | CURRENT.UF2 riêng tư, checksum; vùng `[0x1000,0xEA000)` | Thiếu MBR, bootloader, settings cuối flash, UICR; chưa thử restore |
 | Khôi phục qua SWD | Pad SWD/SWC/GND/3.3V nhìn thấy trong ảnh | Chưa đo pinout/VTref hoặc kiểm tra quyền đọc; không chạy recover/erase |
 | Tái tạo phần cứng | Matrix/encoder/battery từ firmware; ảnh; pinout module ứng viên | Thiếu CAD, BOM, IC nguồn/sạc, đường USB và nhiều net cần đo |
@@ -62,5 +64,5 @@ chỉ bằng ảnh; không dùng bảng ứng viên làm pinout đấu dây đã
    xác nhận sơ đồ phần cứng.
 
 Chi tiết giới hạn backup, cập nhật không atomic và quy trình SWD:
-[audit khôi phục](recovery.md). Chưa có ghi flash, đổi bootloader hoặc thử
-khôi phục trong đợt kiểm tra này.
+[audit khôi phục](recovery.md). Đã ghi firmware ứng dụng qua UF2; không đổi
+bootloader, SoftDevice hoặc chạy SWD recover; chưa thử rollback.

@@ -3,10 +3,15 @@
 [Hướng dẫn](README.md) · [Firmware để tải](../firmware/README.md)
 
 Các thao tác dưới đây dành cho firmware mới trong repo sau khi đã nạp và
-xác minh USB. Firmware mới hiện chưa được thử trên bo; firmware vendor đang
-cài có thể có keymap và tính năng khác.
+xác minh USB. Firmware mới đã nạp và đọc được keymap qua Studio; thao tác phím/encoder/BLE
+còn cần kiểm tra thực tế. Firmware vendor cũ có thể có keymap và tính năng khác.
 
 ## Tính năng và thao tác
+
+Bo người dùng hiện lắp **nút bấm tại vị trí hybrid, không có encoder**.
+Các hành động xoay trong bảng là cấu hình firmware cho tùy chọn encoder;
+không áp dụng cho cấu hình lắp này. Nút hybrid dùng binding tại vị trí ma
+trận của nó; chưa xác minh tọa độ thực tế, không tự đổi binding.
 
 | Chức năng | Cấu hình hiện hành |
 | --- | --- |
@@ -47,8 +52,9 @@ Studio không thay thế việc build khi cần đổi GPIO, cấu hình radio h
 
 Nếu cập nhật HID descriptor để có chức năng chuột, cần xóa pairing ở cả host
 và profile bàn phím rồi ghép đôi lại để host đọc descriptor mới. BT_CLR tác
-động profile đang chọn. Cấu hình BLE experimental hiện được giữ bật; cần thử
-tương thích từng host, không coi đây là bảo đảm kết nối tốt hơn.
+động profile đang chọn. Bản `ble-compat` đang cài đã tắt experimental BLE và nhập passkey; giữ PHY 2M
+tắt rõ ràng. Xem [cấu hình BLE hiện hành](../docs/bluetooth.md); chưa có kết quả
+thử ổn định dài hạn trên host.
 
 NKRO không bật extended report để tránh giảm tương thích không cần thiết.
 USB Boot Protocol là chế độ dự phòng do host yêu cầu; chưa kiểm thử BIOS/UEFI
