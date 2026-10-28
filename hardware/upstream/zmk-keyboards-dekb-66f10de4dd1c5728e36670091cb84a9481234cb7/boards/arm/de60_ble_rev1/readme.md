@@ -1,0 +1,11 @@
+cd ~/zmk/app && west build -p -b de60_ble_rev1 -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="/home/de/dev/zmk-keyboards-dekb"
+
+# Test no sleep
+cd ~/zmk/app && west build -p -b de60_ble_proto -S studio-rpc-usb-uart -- -DCONFIG_ZMK_SLEEP=n -DZMK_EXTRA_MODULES="/home/de/dev/zmk-keyboards-dekb" && west flash
+
+# Build and flash pcb using ADC method 
+cd ~/zmk/app && west build -p -b de60_ble_rev1_adc -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="/home/de/dev/zmk-keyboards-dekb" && west flash
+
+# Build and flash pcb using Fuel Fauge method (default)
+cd ~/zmk/app && west build -p -b de60_ble_rev1_fuelgauge -S studio-rpc-usb-uart -- -DZMK_EXTRA_MODULES="/home/de/dev/zmk-keyboards-dekb" && west flash
+

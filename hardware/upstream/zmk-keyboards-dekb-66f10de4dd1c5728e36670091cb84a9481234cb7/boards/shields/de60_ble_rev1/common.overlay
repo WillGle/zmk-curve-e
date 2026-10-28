@@ -1,0 +1,206 @@
+#include <dt-bindings/led/led.h>
+#include "common_layouts.dtsi"
+#include "common_map.dtsi"
+
+/ {
+    aliases {
+        indicator-r = &led0;
+        indicator-g = &led1;
+        indicator-b = &led2;
+        buzzer = &buzzer;
+    };
+
+    leds {
+        /* P0.29 R, P0.31 G, P0.30 B */
+        compatible = "gpio-leds";
+        status = "okay";
+        led0: led_0 { gpios = <&gpio0 29 GPIO_ACTIVE_LOW>; }; //r
+        led1: led_1 { gpios = <&gpio0 31 GPIO_ACTIVE_LOW>; }; //g
+        led2: led_2 { gpios = <&gpio0 30 GPIO_ACTIVE_LOW>; }; //b
+    };
+
+    buzzer: pwm_buzzer {
+        compatible = "pwm-buzzer";
+		pwms = <&pwm0 3 1000 PWM_POLARITY_NORMAL>;
+		//set status = "okay" to enable the buzzer
+		// status = "disabled";
+		status = "okay";
+    };
+
+    /* --- Wakeup after Soft-off using key D --- */
+    keys {
+        compatible = "gpio-keys";
+        soft_off_gpio_key: soft_off_gpio_key {
+            gpios = <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>; // row5
+        };
+    };
+
+    wakeup_scan: wakeup_scan {
+        compatible = "zmk,gpio-key-wakeup-trigger";
+        trigger = <&soft_off_gpio_key>;
+        wakeup-source;
+        extra-gpios = <&gpio0 3  GPIO_ACTIVE_HIGH>; // col1
+    };
+
+    soft_off_wakers {
+        compatible = "zmk,soft-off-wakeup-sources";
+        wakeup-sources = <&wakeup_scan>;
+    };
+    /* end of soft-off */
+
+    chosen {
+        zmk,underglow = &led_strip;
+        zmk,kscan = &kscan0;
+    };
+
+    kscan0: kscan {
+        compatible = "zmk,kscan-gpio-matrix";
+        wakeup-source;
+        diode-direction = "col2row";
+        row-gpios
+            = <&gpio0 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row0
+            , <&gpio0 8  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row1
+            , <&gpio0 12 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row2
+            , <&gpio0 7  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row3
+            , <&gpio0 15 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row4
+            , <&gpio0 17 (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row5
+            , <&gpio1 9  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row6
+            , <&gpio0 5  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row7
+            , <&gpio1 4  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row8
+            , <&gpio1 6  (GPIO_ACTIVE_HIGH | GPIO_PULL_DOWN)>   // row9
+            ;
+        col-gpios
+            = <&gpio0 28 GPIO_ACTIVE_HIGH>  // col0
+            , <&gpio0 3  GPIO_ACTIVE_HIGH>  // col1
+            , <&gpio1 10 GPIO_ACTIVE_HIGH>  // col2
+            , <&gpio1 11 GPIO_ACTIVE_HIGH>  // col3
+            , <&gpio0 6  GPIO_ACTIVE_HIGH>  // col4
+            , <&gpio1 2  GPIO_ACTIVE_HIGH>  // col5
+            , <&gpio0 22 GPIO_ACTIVE_HIGH>  // col6
+            ;
+    };
+
+    ext-power {
+        compatible = "zmk,ext-power-generic";
+        label = "EXT_POWER";
+        control-gpios = <&gpio0 13 GPIO_ACTIVE_HIGH>;
+    };
+
+    
+};
+
+// Base Layout with all keys in matrix.
+/ {
+    chosen {
+        zmk,physical-layout = &layout_all;
+    };
+
+    matrix_transform_all: matrix_transform_all {
+        compatible = "zmk,matrix-transform";
+        columns = <7>;
+        rows = <10>;
+        map = < 
+            MAP_ALL_R0_1U_R1234_ISO WHT_MAP_R4_625U_A
+        >;
+    };
+    
+    layout_all: layout_all {
+        compatible = "zmk,physical-layout";
+        display-name = "ALL KEYS";
+        transform = <&matrix_transform_all>;
+
+        keys = 
+            WHT_LAYOUT_ALL
+        ;
+    };
+};
+
+&pinctrl {
+    spi3_default: spi3_default {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 0, 24)>;
+        };
+    };
+
+    spi3_sleep: spi3_sleep {
+        group1 {
+            psels = <NRF_PSEL(SPIM_MOSI, 0, 24)>;
+            low-power-enable;
+        };
+    };
+
+    pwm0_default: pwm0_default {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT3, 1, 0)>;  // P1.00 Buzzer
+        };
+    };
+
+    pwm0_sleep: pwm0_sleep {
+        group1 {
+            psels = <NRF_PSEL(PWM_OUT3, 1, 0)>;
+            low-power-enable;
+        };
+    };
+
+    i2c0_default: i2c0_default {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 13)>,  // P0.13 SDA
+                    <NRF_PSEL(TWIM_SCL, 0,  2)>;  // P0.02 SCL
+        };
+    };
+
+    i2c0_sleep: i2c0_sleep {
+        group1 {
+            psels = <NRF_PSEL(TWIM_SDA, 1, 13)>,
+                    <NRF_PSEL(TWIM_SCL, 0,  2)>;
+            low-power-enable;
+        };
+    };
+};
+
+&spi3 {
+    compatible = "nordic,nrf-spim";
+    status = "okay";
+
+    pinctrl-0 = <&spi3_default>;
+    pinctrl-1 = <&spi3_sleep>;
+    pinctrl-names = "default", "sleep";
+
+    led_strip: ws2812@0 {
+        compatible = "worldsemi,ws2812-spi";
+
+        /* SPI */
+        reg = <0>; /* ignored, but necessary for SPI bindings */
+        spi-max-frequency = <4000000>;
+
+        /* WS2812 */
+        chain-length = <26>; /* arbitrary; change at will */
+        spi-one-frame = <0x70>;
+        spi-zero-frame = <0x40>;
+
+        color-mapping = <LED_COLOR_ID_GREEN LED_COLOR_ID_RED LED_COLOR_ID_BLUE>;
+    };
+};
+
+&pwm0 {
+    status = "okay";
+    pinctrl-0 = <&pwm0_default>;
+    pinctrl-1 = <&pwm0_sleep>;
+    pinctrl-names = "default", "sleep";
+};
+
+&i2c0 {
+    status = "okay";
+    compatible = "nordic,nrf-twim";
+    pinctrl-0 = <&i2c0_default>;
+    pinctrl-1 = <&i2c0_sleep>;
+    pinctrl-names = "default", "sleep";
+    // clock-frequency = <100000>;
+    clock-frequency = <I2C_BITRATE_STANDARD>; // 100kHz
+
+    fuelgauge: max17048@36 {
+        compatible = "zmk,maxim-max17048";
+        reg = <0x36>;
+        status = "okay";
+    };
+};

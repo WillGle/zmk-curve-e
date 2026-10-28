@@ -1,0 +1,5 @@
+name: zmk-keyboards-dekb
+build:
+  settings:
+    board_root: .
+    dts_root: .

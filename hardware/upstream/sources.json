@@ -1,0 +1,49 @@
+{
+  "retrieved_date": "2026-10-28",
+  "snapshots": [
+    {
+      "repository": "https://github.com/Deemen17/zmk-keyboards-dekb",
+      "commit": "235fcab4b58eb3d2238fc81f9f841fd848e5740c",
+      "source_url": "https://codeload.github.com/Deemen17/zmk-keyboards-dekb/tar.gz/235fcab4b58eb3d2238fc81f9f841fd848e5740c",
+      "archive": "dekb-235fcab.tar.gz",
+      "bytes": 118663,
+      "sha256": "f65b0287371e63cd8e283c86fdc889618e8dd06cd52a009fb8d93c8b8ff02755",
+      "directory": "zmk-keyboards-dekb-235fcab4b58eb3d2238fc81f9f841fd848e5740c",
+      "license": "MIT; see original LICENSE",
+      "verified_extracted_files": 185
+    },
+    {
+      "repository": "https://github.com/Deemen17/zmk-keyboards-dekb",
+      "commit": "66f10de4dd1c5728e36670091cb84a9481234cb7",
+      "source_url": "https://codeload.github.com/Deemen17/zmk-keyboards-dekb/tar.gz/66f10de4dd1c5728e36670091cb84a9481234cb7",
+      "archive": "dekb-66f10de.tar.gz",
+      "bytes": 97689,
+      "sha256": "b8ab54fafc2ad283efa9e3e1dc28e88aea7bf02dd32550370a0f1d70facbdac5",
+      "directory": "zmk-keyboards-dekb-66f10de4dd1c5728e36670091cb84a9481234cb7",
+      "license": "MIT; see original LICENSE",
+      "verified_extracted_files": 178
+    },
+    {
+      "repository": "https://github.com/Deemen17/deemen17_Library",
+      "commit": "6987369a6cf93b043e7f6f9a0715fac06c0e0e0a",
+      "directory": "deemen17_Library-6987369a6cf93b043e7f6f9a0715fac06c0e0e0a",
+      "scope": "Selected footprint and complete symbol file only; not full repository",
+      "license": "No repository LICENSE found in inspected tree. Public visibility is not a redistribution license. Preserved for local inspection; no reuse permission inferred.",
+      "files": [
+        {
+          "path": "footprints/deemen17_Components.pretty/E73-2G4M08S1C-52840.kicad_mod",
+          "source_url": "https://raw.githubusercontent.com/Deemen17/deemen17_Library/6987369a6cf93b043e7f6f9a0715fac06c0e0e0a/footprints/deemen17_Components.pretty/E73-2G4M08S1C-52840.kicad_mod",
+          "bytes": 11470,
+          "sha256": "7f9548e211b008ad3934f143360af57f86e75d4cc8594cbf8716508bb5bd6ff1"
+        },
+        {
+          "path": "symbols/deemen17_lib.kicad_sym",
+          "source_url": "https://raw.githubusercontent.com/Deemen17/deemen17_Library/6987369a6cf93b043e7f6f9a0715fac06c0e0e0a/symbols/deemen17_lib.kicad_sym",
+          "bytes": 72097,
+          "sha256": "d3122a64ea78170bc5523810e7a6459710982f67e2ff4b7b854e71196ef47455"
+        }
+      ]
+    }
+  ],
+  "bootloader_baseline_manifest": "adafruit-bootloader-8023c1e/source.json"
+}

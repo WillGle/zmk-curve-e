@@ -1,0 +1,29 @@
+{
+  "source_repository": "https://github.com/Deemen17/Adafruit_nRF52_Bootloader",
+  "commit": "8023c1e6a0a8014fce0fa1775a67ca54d4ad7454",
+  "url": "https://codeload.github.com/Deemen17/Adafruit_nRF52_Bootloader/tar.gz/8023c1e6a0a8014fce0fa1775a67ca54d4ad7454",
+  "retrieved_at_utc": "2026-10-28T08:31:34.618481+00:00",
+  "archive_sha256": "849d807673b507b265fe460e9b230876c4b71c897392fd7158b2cf202d0f171b",
+  "archive_bytes": 1621404,
+  "file_count": 426,
+  "unpacked_bytes": 6324352,
+  "license_note": "Original source and embedded dependency licenses apply per file; no new license is assigned. This baseline omits unknown local dirty board changes. Git submodules are not recursively included in GitHub archives.",
+  "verified_files": [
+    {
+      "path": "src/usb/uf2/ghostfat.c",
+      "sha256": "95ce9a045d8004d9413e25ec01e9ec0dfe8d9e36ef92b8a2b5bd01ed564845e7"
+    },
+    {
+      "path": "src/usb/uf2/uf2cfg.h",
+      "sha256": "50e77ff464cc79c2232ad02dce3e655d20334158d911bd90a7cb898e231ad45a"
+    },
+    {
+      "path": "Makefile",
+      "sha256": "ed12c5a77bc6cf06404877944ab43d172a288281f81720e2c251e419a3da14c5"
+    },
+    {
+      "path": "lib/sdk11/components/libraries/bootloader_dfu/dfu_types.h",
+      "sha256": "b80800a88b0c2d7e14c9608d2be8791d9572c02f85226092e4a10147fdffc08d"
+    }
+  ]
+}
