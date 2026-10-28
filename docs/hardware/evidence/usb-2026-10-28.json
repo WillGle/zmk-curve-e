@@ -1,0 +1,43 @@
+{
+  "captured_at": "2026-10-28T07:25:51.970530+00:00",
+  "source_commit": "7e720b37e8e0e88e660f54f531d2da1081dbffe1",
+  "method": "Read-only Linux sysfs; no serial commands, flashing or reset",
+  "usb": {
+    "manufacturer": "DEKB",
+    "product": "CURVE E BLE",
+    "idVendor": "de17",
+    "idProduct": "40e1",
+    "bcdDevice": "0305",
+    "speed": "12",
+    "bNumInterfaces": "3",
+    "bmAttributes": "e0",
+    "bMaxPower": "100mA",
+    "descriptors_hex": "12010002ef02014017dee14005030102030109026400030100e032080b000202020000090400000102020000052400100105240102010424020205240600010705810310000a09040100020a000000070582024000000705010240000009040200010300000009211101000122d90007058303100001"
+  },
+  "hid_report_descriptor_hex": "05010906a1018501050719e029e7150025017501950881020507750895018103050819012905750195059102050875039501910305071500250119002967750195688102c0050c0901a1018502050c150026ff0f19002aff0f751095068100c005010902a10185030901a1000509190129051500250175019505810275039501810305010930093116008026ff7f751095028106a10209481500250f3501451075049501a4b102093816008026ff7f35004500751095018106c0a1020948b4b102050c0a380216008026ff7f35004500751095018106c0c0c0",
+  "interfaces": [
+    {
+      "path": "1-1:1.0",
+      "bInterfaceClass": "02",
+      "bInterfaceSubClass": "02",
+      "bInterfaceProtocol": "00"
+    },
+    {
+      "path": "1-1:1.1",
+      "bInterfaceClass": "0a",
+      "bInterfaceSubClass": "00",
+      "bInterfaceProtocol": "00"
+    },
+    {
+      "path": "1-1:1.2",
+      "bInterfaceClass": "03",
+      "bInterfaceSubClass": "00",
+      "bInterfaceProtocol": "00"
+    }
+  ],
+  "input_devices": [
+    "I: Bus=0003 Vendor=de17 Product=40e1 Version=0111\nN: Name=\"DEKB CURVE E BLE Keyboard\"\nP: Phys=usb-0000:65:00.3-1/input2\nS: Sysfs=/devices/pci0000:00/0000:00:08.1/0000:65:00.3/usb1/1-1/1-1:1.2/0003:DE17:40E1.000B/input/input40\nU: Uniq=BB5563608CA9A37C\nH: Handlers=sysrq kbd event17 leds \nB: PROP=0\nB: EV=12001f\nB: KEY=3f00733fff 0 0 483ffff17aff32d bfd4444600000000 1 130ff38b17d000 677bfad9415fed e1beffdf01cfffff fffffffffffffffe\nB: REL=1040\nB: ABS=100000000\nB: MSC=10\nB: LED=1f",
+    "I: Bus=0003 Vendor=de17 Product=40e1 Version=0111\nN: Name=\"DEKB CURVE E BLE Mouse\"\nP: Phys=usb-0000:65:00.3-1/input2\nS: Sysfs=/devices/pci0000:00/0000:00:08.1/0000:65:00.3/usb1/1-1/1-1:1.2/0003:DE17:40E1.000B/input/input41\nU: Uniq=BB5563608CA9A37C\nH: Handlers=event18 mouse3 \nB: PROP=0\nB: EV=17\nB: KEY=1f0000 0 0 0 0\nB: REL=1943\nB: MSC=10"
+  ],
+  "serial_node": "/dev/ttyACM0"
+}
